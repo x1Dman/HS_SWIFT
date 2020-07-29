@@ -1,0 +1,2 @@
+SAMPLE OF HEARTHSTONE API USAGE
+with swift 

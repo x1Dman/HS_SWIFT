@@ -10,14 +10,29 @@
 
 import UIKit
 
-protocol CardsWireframeInterface: WireframeInterface {
+protocol CardsWireframeProtocol: WireframeInterface {
+    func closeCurrentViewController()
 }
 
-protocol CardsViewInterface: ViewInterface {
+protocol CardsCollectionViewCellProtocol : ViewInterface {
+    func setViewCell()
+    func setConstraintsCell()
 }
 
-protocol CardsPresenterInterface: PresenterInterface {
+protocol CardsCollectionViewProtocol: ViewInterface {
+    func setView()
+    func setConstraints()
 }
 
-protocol CardsInteractorInterface: InteractorInterface {
+protocol CardsPresenterProtocol: PresenterInterface {
+    // prepare view to show
+    func configureView()
+    // when user taps at the specific card
+    func viewTapped()
+}
+
+protocol CardsInteractorProtocol: InteractorInterface {
+    // download the cards with API;
+    // return JSON
+    func fetchData() -> String
 }

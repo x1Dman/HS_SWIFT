@@ -17,6 +17,7 @@ protocol CardDetailViewInterface: ViewInterface {
 }
 
 protocol CardDetailPresenterInterface: PresenterInterface {
+    
 }
 
 protocol CardDetailInteractorInterface: InteractorInterface {

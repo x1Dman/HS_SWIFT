@@ -9,25 +9,57 @@
 //
 
 import Foundation
+import UIKit
 
 final class CardsPresenter {
 
     // MARK: - Private properties -
-
-    private unowned let view: CardsViewInterface
-    private let interactor: CardsInteractorInterface
-    private let wireframe: CardsWireframeInterface
+    // view
+    private unowned let viewCell: CardsCollectionViewCellProtocol
+    private unowned let view: CardsCollectionViewProtocol
+    
+    private let interactor: CardsInteractorProtocol
+    private let wireframe: CardsWireframeProtocol
+    private var cells: [UICollectionViewCell] = []
+    NotificationCenter.default.addObserver(
+        self,
+        selector: #selector(refreshData),
+        name: NSNotification.Name("dataWasDownloaded"),
+        object: nil
+    )
+    
+    @objc private func refreshData(notification: NSNotification) {
+        
+    }
 
     // MARK: - Lifecycle -
 
-    init(view: CardsViewInterface, interactor: CardsInteractorInterface, wireframe: CardsWireframeInterface) {
+    init(view: CardsCollectionViewProtocol, interactor: CardsInteractorProtocol, wireframe: CardsWireframeProtocol, viewCell: CardCollectionViewCell) {
         self.view = view
         self.interactor = interactor
         self.wireframe = wireframe
+        self.viewCell = viewCell
     }
 }
 
 // MARK: - Extensions -
 
-extension CardsPresenter: CardsPresenterInterface {
+extension CardsPresenter: CardsPresenterProtocol {
+    
+    func configureView() {
+        // fetch data
+        interactor.fetchData()
+        // setup view
+        view.setView()
+        view.setConstraints()
+        
+        // setupViewCell
+//        viewCell.setViewCell()
+//        viewCell.setConstraintsCell()
+    }
+    
+    // sending message to router that this view should be closed
+    func viewTapped() {
+        wireframe.closeCurrentViewController()
+    }
 }

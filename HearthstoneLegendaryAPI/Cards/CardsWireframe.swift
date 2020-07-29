@@ -14,16 +14,15 @@ final class CardsWireframe: BaseWireframe {
 
     // MARK: - Private properties -
 
-    private let storyboard = UIStoryboard(name: "Cards", bundle: nil)
-
     // MARK: - Module setup -
 
     init() {
-        let moduleViewController = storyboard.instantiateViewController(ofType: CardsViewController.self)
+        let moduleViewController = CardsCollectionViewController(collectionViewLayout: UICollectionViewLayout())
         super.init(viewController: moduleViewController)
 
         let interactor = CardsInteractor()
-        let presenter = CardsPresenter(view: moduleViewController, interactor: interactor, wireframe: self)
+        let viewCell = CardCollectionViewCell()
+        let presenter = CardsPresenter(view: moduleViewController, interactor: interactor, wireframe: self, viewCell: viewCell)
         moduleViewController.presenter = presenter
     }
 
@@ -31,5 +30,8 @@ final class CardsWireframe: BaseWireframe {
 
 // MARK: - Extensions -
 
-extension CardsWireframe: CardsWireframeInterface {
+extension CardsWireframe: CardsWireframeProtocol {
+    func closeCurrentViewController() {
+        
+    }
 }

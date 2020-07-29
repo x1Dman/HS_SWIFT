@@ -14,6 +14,22 @@
 		E43B8CC124D17D5C00C3692F /* HearthstoneLegendaryAPI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E43B8CBF24D17D5C00C3692F /* HearthstoneLegendaryAPI.xcdatamodeld */; };
 		E43B8CC324D17D5E00C3692F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E43B8CC224D17D5E00C3692F /* Assets.xcassets */; };
 		E43B8CC624D17D5E00C3692F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E43B8CC424D17D5E00C3692F /* LaunchScreen.storyboard */; };
+		E43B8CE724D182E700C3692F /* CardsInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B8CE124D182E700C3692F /* CardsInterfaces.swift */; };
+		E43B8CE824D182E700C3692F /* CardsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B8CE224D182E700C3692F /* CardsPresenter.swift */; };
+		E43B8CE924D182E700C3692F /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B8CE324D182E700C3692F /* CardsViewController.swift */; };
+		E43B8CEA24D182E700C3692F /* CardsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B8CE424D182E700C3692F /* CardsInteractor.swift */; };
+		E43B8CEB24D182E700C3692F /* CardsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B8CE524D182E700C3692F /* CardsWireframe.swift */; };
+		E43B8CF524D183D300C3692F /* ViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B8CEF24D183D300C3692F /* ViewInterface.swift */; };
+		E43B8CF624D183D300C3692F /* InteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B8CF024D183D300C3692F /* InteractorInterface.swift */; };
+		E43B8CF724D183D300C3692F /* BaseWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B8CF124D183D300C3692F /* BaseWireframe.swift */; };
+		E43B8CF824D183D300C3692F /* PresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B8CF224D183D300C3692F /* PresenterInterface.swift */; };
+		E43B8CF924D183D300C3692F /* FormatterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B8CF324D183D300C3692F /* FormatterInterface.swift */; };
+		E43B8CFA24D183D300C3692F /* UIStoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B8CF424D183D300C3692F /* UIStoryboardExtension.swift */; };
+		E43B8D0124D1845200C3692F /* CardDetailInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B8CFC24D1845200C3692F /* CardDetailInterfaces.swift */; };
+		E43B8D0224D1845200C3692F /* CardDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B8CFD24D1845200C3692F /* CardDetailPresenter.swift */; };
+		E43B8D0324D1845200C3692F /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B8CFE24D1845200C3692F /* CardDetailViewController.swift */; };
+		E43B8D0424D1845200C3692F /* CardDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B8CFF24D1845200C3692F /* CardDetailInteractor.swift */; };
+		E43B8D0524D1845200C3692F /* CardDetailWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B8D0024D1845200C3692F /* CardDetailWireframe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +42,22 @@
 		E43B8CC224D17D5E00C3692F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E43B8CC524D17D5E00C3692F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E43B8CC724D17D5E00C3692F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E43B8CE124D182E700C3692F /* CardsInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsInterfaces.swift; sourceTree = "<group>"; };
+		E43B8CE224D182E700C3692F /* CardsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsPresenter.swift; sourceTree = "<group>"; };
+		E43B8CE324D182E700C3692F /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
+		E43B8CE424D182E700C3692F /* CardsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsInteractor.swift; sourceTree = "<group>"; };
+		E43B8CE524D182E700C3692F /* CardsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsWireframe.swift; sourceTree = "<group>"; };
+		E43B8CEF24D183D300C3692F /* ViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewInterface.swift; path = "../../../iOS-VIPER-Xcode-Templates/Base VIPER Interfaces/ViewInterface.swift"; sourceTree = "<group>"; };
+		E43B8CF024D183D300C3692F /* InteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InteractorInterface.swift; path = "../../../iOS-VIPER-Xcode-Templates/Base VIPER Interfaces/InteractorInterface.swift"; sourceTree = "<group>"; };
+		E43B8CF124D183D300C3692F /* BaseWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseWireframe.swift; path = "../../../iOS-VIPER-Xcode-Templates/Base VIPER Interfaces/BaseWireframe.swift"; sourceTree = "<group>"; };
+		E43B8CF224D183D300C3692F /* PresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PresenterInterface.swift; path = "../../../iOS-VIPER-Xcode-Templates/Base VIPER Interfaces/PresenterInterface.swift"; sourceTree = "<group>"; };
+		E43B8CF324D183D300C3692F /* FormatterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormatterInterface.swift; path = "../../../iOS-VIPER-Xcode-Templates/Base VIPER Interfaces/FormatterInterface.swift"; sourceTree = "<group>"; };
+		E43B8CF424D183D300C3692F /* UIStoryboardExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIStoryboardExtension.swift; path = "../../../iOS-VIPER-Xcode-Templates/Base VIPER Interfaces/UIStoryboardExtension.swift"; sourceTree = "<group>"; };
+		E43B8CFC24D1845200C3692F /* CardDetailInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailInterfaces.swift; sourceTree = "<group>"; };
+		E43B8CFD24D1845200C3692F /* CardDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailPresenter.swift; sourceTree = "<group>"; };
+		E43B8CFE24D1845200C3692F /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
+		E43B8CFF24D1845200C3692F /* CardDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailInteractor.swift; sourceTree = "<group>"; };
+		E43B8D0024D1845200C3692F /* CardDetailWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailWireframe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +90,9 @@
 		E43B8CB524D17D5C00C3692F /* HearthstoneLegendaryAPI */ = {
 			isa = PBXGroup;
 			children = (
+				E43B8CFB24D1842600C3692F /* CardDetail */,
+				E43B8CEC24D1832A00C3692F /* BaseViperIntefaces */,
+				E43B8CD724D1824B00C3692F /* Cards */,
 				E43B8CB624D17D5C00C3692F /* AppDelegate.swift */,
 				E43B8CB824D17D5C00C3692F /* SceneDelegate.swift */,
 				E43B8CBA24D17D5C00C3692F /* ViewController.swift */,
@@ -68,6 +103,43 @@
 				E43B8CBF24D17D5C00C3692F /* HearthstoneLegendaryAPI.xcdatamodeld */,
 			);
 			path = HearthstoneLegendaryAPI;
+			sourceTree = "<group>";
+		};
+		E43B8CD724D1824B00C3692F /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				E43B8CE124D182E700C3692F /* CardsInterfaces.swift */,
+				E43B8CE224D182E700C3692F /* CardsPresenter.swift */,
+				E43B8CE324D182E700C3692F /* CardsViewController.swift */,
+				E43B8CE424D182E700C3692F /* CardsInteractor.swift */,
+				E43B8CE524D182E700C3692F /* CardsWireframe.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		E43B8CEC24D1832A00C3692F /* BaseViperIntefaces */ = {
+			isa = PBXGroup;
+			children = (
+				E43B8CF124D183D300C3692F /* BaseWireframe.swift */,
+				E43B8CF324D183D300C3692F /* FormatterInterface.swift */,
+				E43B8CF024D183D300C3692F /* InteractorInterface.swift */,
+				E43B8CF224D183D300C3692F /* PresenterInterface.swift */,
+				E43B8CF424D183D300C3692F /* UIStoryboardExtension.swift */,
+				E43B8CEF24D183D300C3692F /* ViewInterface.swift */,
+			);
+			path = BaseViperIntefaces;
+			sourceTree = "<group>";
+		};
+		E43B8CFB24D1842600C3692F /* CardDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E43B8CFC24D1845200C3692F /* CardDetailInterfaces.swift */,
+				E43B8CFD24D1845200C3692F /* CardDetailPresenter.swift */,
+				E43B8CFE24D1845200C3692F /* CardDetailViewController.swift */,
+				E43B8CFF24D1845200C3692F /* CardDetailInteractor.swift */,
+				E43B8D0024D1845200C3692F /* CardDetailWireframe.swift */,
+			);
+			path = CardDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,10 +213,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E43B8CF624D183D300C3692F /* InteractorInterface.swift in Sources */,
+				E43B8CF524D183D300C3692F /* ViewInterface.swift in Sources */,
+				E43B8CEB24D182E700C3692F /* CardsWireframe.swift in Sources */,
+				E43B8CF724D183D300C3692F /* BaseWireframe.swift in Sources */,
+				E43B8CEA24D182E700C3692F /* CardsInteractor.swift in Sources */,
 				E43B8CBB24D17D5C00C3692F /* ViewController.swift in Sources */,
+				E43B8D0124D1845200C3692F /* CardDetailInterfaces.swift in Sources */,
+				E43B8D0224D1845200C3692F /* CardDetailPresenter.swift in Sources */,
+				E43B8CE924D182E700C3692F /* CardsViewController.swift in Sources */,
+				E43B8CFA24D183D300C3692F /* UIStoryboardExtension.swift in Sources */,
+				E43B8D0424D1845200C3692F /* CardDetailInteractor.swift in Sources */,
 				E43B8CB724D17D5C00C3692F /* AppDelegate.swift in Sources */,
 				E43B8CC124D17D5C00C3692F /* HearthstoneLegendaryAPI.xcdatamodeld in Sources */,
+				E43B8CF824D183D300C3692F /* PresenterInterface.swift in Sources */,
+				E43B8D0324D1845200C3692F /* CardDetailViewController.swift in Sources */,
+				E43B8CE724D182E700C3692F /* CardsInterfaces.swift in Sources */,
+				E43B8CE824D182E700C3692F /* CardsPresenter.swift in Sources */,
+				E43B8CF924D183D300C3692F /* FormatterInterface.swift in Sources */,
 				E43B8CB924D17D5C00C3692F /* SceneDelegate.swift in Sources */,
+				E43B8D0524D1845200C3692F /* CardDetailWireframe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

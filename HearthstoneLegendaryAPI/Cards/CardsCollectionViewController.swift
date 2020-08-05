@@ -18,35 +18,94 @@ final class CardsCollectionViewController: UICollectionViewController {
     
     // MARK: private properties
     //private
+    private let sectionInsets = UIEdgeInsets(
+        top: 50.0,
+        left: 20.0,
+        bottom: 50.0,
+        right: 20.0
+    )
 
     // MARK: - Lifecycle -
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // ask for configuration
+        collectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         presenter.configureView()
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return presenter.cellsCount()
+    }
+    
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        print(presenter.cellsCount())
         return 1
     }
     
+    // creating cells
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as?
+            CardCollectionViewCell else { return UICollectionViewCell() }
+        guard let url = presenter.url(byIndex: indexPath.row) else { return cell }
+        cell.cardImage.load(url: url)
+        return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter.viewTapped()
+    }
 }
 
 // MARK: - Extensions -
 
 extension CardsCollectionViewController: CardsCollectionViewProtocol {
+    func reload() {
+        collectionView.reloadData()
+    }
+    
     func setView() {
+        collectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         print("was setuped")
         collectionView.backgroundColor = .red
     }
     
     func setConstraints() {
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
         ])
     }
+}
+
+// ?????
+extension CardsCollectionViewController: UICollectionViewDelegateFlowLayout {
+  //1
+  func collectionView(_ collectionView: UICollectionView,
+                      layout collectionViewLayout: UICollectionViewLayout,
+                      sizeForItemAt indexPath: IndexPath) -> CGSize {
+    //2
+    let paddingSpace = sectionInsets.left * (2)
+    let availableWidth = view.frame.width - paddingSpace
+    let widthPerItem = availableWidth
+    
+    return CGSize(width: widthPerItem, height: widthPerItem)
+  }
+  
+  //3
+  func collectionView(_ collectionView: UICollectionView,
+                      layout collectionViewLayout: UICollectionViewLayout,
+                      insetForSectionAt section: Int) -> UIEdgeInsets {
+    return sectionInsets
+  }
+  
+  // 4
+  func collectionView(_ collectionView: UICollectionView,
+                      layout collectionViewLayout: UICollectionViewLayout,
+                      minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    return sectionInsets.left
+  }
 }

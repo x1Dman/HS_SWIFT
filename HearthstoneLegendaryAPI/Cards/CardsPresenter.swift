@@ -20,17 +20,9 @@ final class CardsPresenter {
     
     private let interactor: CardsInteractorProtocol
     private let wireframe: CardsWireframeProtocol
-    private var cells: [UICollectionViewCell] = []
-    NotificationCenter.default.addObserver(
-        self,
-        selector: #selector(refreshData),
-        name: NSNotification.Name("dataWasDownloaded"),
-        object: nil
-    )
+    //private var cells: [UICollectionViewCell] = []
+    private var cards: Cards?
     
-    @objc private func refreshData(notification: NSNotification) {
-        
-    }
 
     // MARK: - Lifecycle -
 
@@ -45,21 +37,42 @@ final class CardsPresenter {
 // MARK: - Extensions -
 
 extension CardsPresenter: CardsPresenterProtocol {
+    func url(byIndex index: Int) -> URL? {
+        let path = cards?.cards?[index].image ?? ""
+        guard let url = URL(string: path) else { return nil }
+        return url
+    }
+    
+    
+    func cellsCount() -> Int {
+        return cards?.cards?.count ?? 1
+    }
     
     func configureView() {
         // fetch data
-        interactor.fetchData()
-        // setup view
+        // let cards  = interactor.fetchData()
+        // there should be a spinner
         view.setView()
         view.setConstraints()
-        
-        // setupViewCell
-//        viewCell.setViewCell()
-//        viewCell.setConstraintsCell()
+        interactor.fetchData() { [weak self] in
+            self?.cards = self?.interactor.cards
+            print("here is \(self?.cards)")
+            // update content
+            self?.view.reload()
+            // there spinner should be stopped
+        }
     }
     
     // sending message to router that this view should be closed
     func viewTapped() {
         wireframe.closeCurrentViewController()
+    }
+}
+
+extension CardsPresenter: CardPresenterProtocol {
+    func loadImage(withIndex index: Int) {
+        guard let path = cards?.cards?[index].image else { return }
+        let url = URL(fileURLWithPath: path)
+        viewCell.cardImage.load(url: url)
     }
 }

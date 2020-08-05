@@ -8,11 +8,15 @@
 
 import Foundation
 
-struct Card {
-    var name: String
-    var type: String
-    var attack: String
-    var health: String
-    var description: String
-    var image: String
+struct Card: Codable {
+    var name: String = ""
+    var manaCost: Int = 0
+    var image: String = ""
+    var imageGold: String = ""
+    var text: String?
+    var flavorText = ""
+    
+    //
+    var health: Int = 0
+    var attack: Int = 0
 }

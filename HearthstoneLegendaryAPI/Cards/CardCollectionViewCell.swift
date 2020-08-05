@@ -10,34 +10,40 @@ import UIKit
 
 class CardCollectionViewCell: UICollectionViewCell {
     
-    var presenter: CardsPresenterProtocol!
-    
-    private var cardImage = UIImageView()
-    private var cardLabel = UILabel()
+    var presenter: CardPresenterProtocol!
+    var cardImage = UIImageView()
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        contentView.addSubview(cardImage)
+        setConstraintsCell()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
 }
 
 extension CardCollectionViewCell : CardsCollectionViewCellProtocol {
+    func cellUpdate(index: Int) {
+        presenter.loadImage(withIndex: index)
+    }
+    
     func setViewCell() {
-        cardLabel.text = "Just a text"
+        contentView.addSubview(cardImage)
     }
     
     func setConstraintsCell() {
         cardImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             cardImage.topAnchor.constraint(equalTo: contentView.topAnchor),
-            cardImage.bottomAnchor.constraint(equalTo: cardLabel.topAnchor),
+            cardImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             cardImage.widthAnchor.constraint(equalTo: contentView.widthAnchor)
-        ])
-        
-        cardLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            cardLabel.topAnchor.constraint(equalTo: cardImage.bottomAnchor),
-            cardLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            cardLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor)
         ])
     }
 }

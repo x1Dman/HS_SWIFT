@@ -11,20 +11,29 @@
 import Foundation
 
 final class CardsInteractor {
-    
-    private let nc = NotificationCenter.default.publisher(for: NSNotification.Name("dataWasDownloaded"))
-    private let headers = [
-        "x-rapidapi-host": "omgvamp-hearthstone-v1.p.rapidapi.com",
-        "x-rapidapi-key": "gf6PbcT2Gsmsh7sXlDSndOmOoB6vp1OB40BjsnufFTcxnINk4V"
-    ]
-    
-    private let urlString = "https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/qualities/Legendary?locale=ruRU&collectible=1&cost=5"
+    private let network = NetworkService()
+    private weak var presenter: CardsPresenterProtocol?
+    var cards: Cards?
 }
 
 // MARK: - Extensions -
 
 extension CardsInteractor: CardsInteractorProtocol {
-    func fetchData() -> String {
-        return ""
+    
+    func fetchData(completion: @escaping () -> ()) {
+        self.network.jsonParser{cards, error in
+            switch error {
+            case .none:
+                DispatchQueue.main.async {
+                    self.cards = cards
+                    completion()
+                }
+            default:
+                DispatchQueue.main.async {
+                    self.cards = nil
+                    completion()
+                }
+            }
+        }
     }
 }

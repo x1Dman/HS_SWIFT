@@ -17,7 +17,8 @@ final class CardsWireframe: BaseWireframe {
     // MARK: - Module setup -
 
     init() {
-        let moduleViewController = CardsCollectionViewController(collectionViewLayout: UICollectionViewLayout())
+        // ViewFlowLayout ???? instead of ViewLayout
+        let moduleViewController = CardsCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
         super.init(viewController: moduleViewController)
 
         let interactor = CardsInteractor()

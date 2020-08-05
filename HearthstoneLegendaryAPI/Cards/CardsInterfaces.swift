@@ -15,13 +15,16 @@ protocol CardsWireframeProtocol: WireframeInterface {
 }
 
 protocol CardsCollectionViewCellProtocol : ViewInterface {
+    var cardImage: UIImageView { get set }
     func setViewCell()
     func setConstraintsCell()
+    func cellUpdate(index: Int)
 }
 
 protocol CardsCollectionViewProtocol: ViewInterface {
     func setView()
     func setConstraints()
+    func reload()
 }
 
 protocol CardsPresenterProtocol: PresenterInterface {
@@ -29,10 +32,20 @@ protocol CardsPresenterProtocol: PresenterInterface {
     func configureView()
     // when user taps at the specific card
     func viewTapped()
+    // return number of cells
+    func cellsCount() -> Int
+    func url(byIndex index: Int) -> URL?
+}
+
+protocol CardPresenterProtocol: PresenterInterface {
+    // prepare view to show
+    func loadImage(withIndex: Int)
 }
 
 protocol CardsInteractorProtocol: InteractorInterface {
+    var cards: Cards? { get set }
+    
     // download the cards with API;
     // return JSON
-    func fetchData() -> String
+    func fetchData(completion: @escaping () -> ())
 }

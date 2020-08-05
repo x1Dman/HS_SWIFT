@@ -14,11 +14,17 @@ protocol CardDetailWireframeInterface: WireframeInterface {
 }
 
 protocol CardDetailViewInterface: ViewInterface {
+    func setView()
+    func setConstraints()
+    
+    var cardImage: UIImageView { get set }
+    var cardDescription: UILabel { get set }
 }
 
 protocol CardDetailPresenterInterface: PresenterInterface {
-    
+    func configureView()
 }
 
 protocol CardDetailInteractorInterface: InteractorInterface {
+    var cards: Card { get set }
 }

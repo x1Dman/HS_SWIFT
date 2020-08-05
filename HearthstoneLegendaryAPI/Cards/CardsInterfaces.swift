@@ -11,7 +11,7 @@
 import UIKit
 
 protocol CardsWireframeProtocol: WireframeInterface {
-    func closeCurrentViewController()
+    func openDetailInfo(card: Card)
 }
 
 protocol CardsCollectionViewCellProtocol : ViewInterface {
@@ -31,7 +31,7 @@ protocol CardsPresenterProtocol: PresenterInterface {
     // prepare view to show
     func configureView()
     // when user taps at the specific card
-    func viewTapped()
+    func viewTapped(byIndex index: Int)
     // return number of cells
     func cellsCount() -> Int
     func url(byIndex index: Int) -> URL?

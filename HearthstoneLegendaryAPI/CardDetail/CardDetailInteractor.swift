@@ -11,9 +11,19 @@
 import Foundation
 
 final class CardDetailInteractor {
+    var card = Card()
 }
 
 // MARK: - Extensions -
 
 extension CardDetailInteractor: CardDetailInteractorInterface {
+    var cards: Card {
+        get {
+            return card
+        }
+        set(card) {
+            self.cards = card
+        }
+    }
+    
 }

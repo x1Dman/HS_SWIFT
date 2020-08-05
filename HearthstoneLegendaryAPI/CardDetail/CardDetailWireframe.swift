@@ -24,7 +24,6 @@ final class CardDetailWireframe: BaseWireframe {
         let presenter = CardDetailPresenter(view: moduleViewController, interactor: interactor, wireframe: self)
         moduleViewController.presenter = presenter
     }
-
 }
 
 // MARK: - Extensions -

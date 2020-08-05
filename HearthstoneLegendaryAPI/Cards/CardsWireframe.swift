@@ -32,7 +32,8 @@ final class CardsWireframe: BaseWireframe {
 // MARK: - Extensions -
 
 extension CardsWireframe: CardsWireframeProtocol {
-    func closeCurrentViewController() {
-        
+    func openDetailInfo(card: Card) {
+        let cardDetailWireframe = CardDetailWireframe()
+        viewController.show(cardDetailWireframe.viewController, sender: self)
     }
 }

@@ -37,6 +37,11 @@ final class CardsPresenter {
 // MARK: - Extensions -
 
 extension CardsPresenter: CardsPresenterProtocol {
+    func viewTapped(byIndex index: Int) {
+        guard let card = cards?.cards?[index] else { return }
+        wireframe.openDetailInfo(card: card)
+    }
+    
     func url(byIndex index: Int) -> URL? {
         let path = cards?.cards?[index].image ?? ""
         guard let url = URL(string: path) else { return nil }
@@ -64,9 +69,6 @@ extension CardsPresenter: CardsPresenterProtocol {
     }
     
     // sending message to router that this view should be closed
-    func viewTapped() {
-        wireframe.closeCurrentViewController()
-    }
 }
 
 extension CardsPresenter: CardPresenterProtocol {

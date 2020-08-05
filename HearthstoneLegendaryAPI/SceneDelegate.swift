@@ -20,8 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let wireframe = CardsWireframe()
         let viewController = wireframe.viewController
+        let navigationController = UINavigationController()
+        navigationController.viewControllers = [viewController]
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = viewController
+        window?.rootViewController = navigationController
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
     }

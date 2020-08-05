@@ -32,7 +32,6 @@
 		E43B8D0A24D19D9500C3692F /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B8D0924D19D9500C3692F /* CardCollectionViewCell.swift */; };
 		E4D87E9424D2BCCC000094AD /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D87E9324D2BCCC000094AD /* NetworkService.swift */; };
 		E4D87E9624D2D001000094AD /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D87E9524D2D001000094AD /* Cards.swift */; };
-		E4D87E9824D2D7C2000094AD /* kek.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D87E9724D2D7C2000094AD /* kek.swift */; };
 		E4D87E9C24DAB8EA000094AD /* UIImageViewLoadFromURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D87E9B24DAB8EA000094AD /* UIImageViewLoadFromURL.swift */; };
 		E4D87E9F24DADBB1000094AD /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D87E9E24DADBB1000094AD /* Secret.swift */; };
 /* End PBXBuildFile section */
@@ -65,7 +64,6 @@
 		E43B8D0924D19D9500C3692F /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		E4D87E9324D2BCCC000094AD /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E4D87E9524D2D001000094AD /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
-		E4D87E9724D2D7C2000094AD /* kek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kek.swift; sourceTree = "<group>"; };
 		E4D87E9B24DAB8EA000094AD /* UIImageViewLoadFromURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewLoadFromURL.swift; sourceTree = "<group>"; };
 		E4D87E9E24DADBB1000094AD /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,7 +110,6 @@
 				E43B8CC424D17D5E00C3692F /* LaunchScreen.storyboard */,
 				E43B8CC724D17D5E00C3692F /* Info.plist */,
 				E43B8CBF24D17D5C00C3692F /* HearthstoneLegendaryAPI.xcdatamodeld */,
-				E4D87E9724D2D7C2000094AD /* kek.swift */,
 			);
 			path = HearthstoneLegendaryAPI;
 			sourceTree = "<group>";
@@ -275,7 +272,6 @@
 				E43B8CEA24D182E700C3692F /* CardsInteractor.swift in Sources */,
 				E4D87E9C24DAB8EA000094AD /* UIImageViewLoadFromURL.swift in Sources */,
 				E43B8D0124D1845200C3692F /* CardDetailInterfaces.swift in Sources */,
-				E4D87E9824D2D7C2000094AD /* kek.swift in Sources */,
 				E4D87E9F24DADBB1000094AD /* Secret.swift in Sources */,
 				E43B8D0224D1845200C3692F /* CardDetailPresenter.swift in Sources */,
 				E43B8CE924D182E700C3692F /* CardsCollectionViewController.swift in Sources */,

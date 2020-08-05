@@ -53,12 +53,11 @@ final class CardsCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter.viewTapped()
+        presenter.viewTapped(byIndex: indexPath.row)
     }
 }
 
 // MARK: - Extensions -
-
 extension CardsCollectionViewController: CardsCollectionViewProtocol {
     func reload() {
         collectionView.reloadData()
@@ -73,7 +72,7 @@ extension CardsCollectionViewController: CardsCollectionViewProtocol {
     func setConstraints() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)

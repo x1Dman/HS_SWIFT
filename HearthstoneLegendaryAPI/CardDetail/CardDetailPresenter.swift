@@ -30,4 +30,7 @@ final class CardDetailPresenter {
 // MARK: - Extensions -
 
 extension CardDetailPresenter: CardDetailPresenterInterface {
+    func configureView() {
+        
+    }
 }

@@ -15,7 +15,11 @@ final class CardDetailViewController: UIViewController {
     // MARK: - Public properties -
 
     var presenter: CardDetailPresenterInterface!
-
+    
+    // MARK: - private properties -
+    var cardImage = UIImageView()
+    var cardDescription = UILabel()
+    
     // MARK: - Lifecycle -
 
     override func viewDidLoad() {
@@ -27,4 +31,11 @@ final class CardDetailViewController: UIViewController {
 // MARK: - Extensions -
 
 extension CardDetailViewController: CardDetailViewInterface {
+    func setView() {
+        
+    }
+    
+    func setConstraints() {
+        
+    }
 }

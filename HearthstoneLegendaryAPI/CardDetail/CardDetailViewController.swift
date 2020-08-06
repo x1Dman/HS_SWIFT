@@ -24,6 +24,7 @@ final class CardDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.configureView()
     }
 
 }
@@ -32,10 +33,28 @@ final class CardDetailViewController: UIViewController {
 
 extension CardDetailViewController: CardDetailViewInterface {
     func setView() {
-        
+        view.addSubview(cardImage)
+        view.addSubview(cardDescription)
+        cardDescription.numberOfLines = 0
+        cardDescription.sizeToFit()
+        cardDescription.textAlignment = .center
     }
     
     func setConstraints() {
+        cardImage.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            cardImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            cardImage.widthAnchor.constraint(equalTo: view.widthAnchor),
+            cardImage.bottomAnchor.constraint(equalTo: cardDescription.topAnchor),
+            cardImage.heightAnchor.constraint(equalToConstant: view.frame.size.height / 2.0)
+        ])
         
+        cardDescription.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            cardDescription.topAnchor.constraint(equalTo: cardImage.bottomAnchor),
+            cardDescription.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            cardDescription.widthAnchor.constraint(equalTo: view.widthAnchor),
+            cardDescription.heightAnchor.constraint(equalToConstant: view.frame.size.height / 2.0)
+        ])
     }
 }

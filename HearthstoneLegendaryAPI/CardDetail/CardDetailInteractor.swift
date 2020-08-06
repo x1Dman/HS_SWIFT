@@ -19,10 +19,10 @@ final class CardDetailInteractor {
 extension CardDetailInteractor: CardDetailInteractorInterface {
     var cards: Card {
         get {
-            return card
+            return self.card
         }
         set(card) {
-            self.cards = card
+            self.card = card
         }
     }
     

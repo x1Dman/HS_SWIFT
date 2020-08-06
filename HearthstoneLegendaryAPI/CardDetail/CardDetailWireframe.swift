@@ -16,11 +16,12 @@ final class CardDetailWireframe: BaseWireframe {
 
     // MARK: - Module setup -
 
-    init() {
+    init(withCard card: Card) {
         let moduleViewController = CardDetailViewController()
         super.init(viewController: moduleViewController)
 
         let interactor = CardDetailInteractor()
+        interactor.cards = card
         let presenter = CardDetailPresenter(view: moduleViewController, interactor: interactor, wireframe: self)
         moduleViewController.presenter = presenter
     }

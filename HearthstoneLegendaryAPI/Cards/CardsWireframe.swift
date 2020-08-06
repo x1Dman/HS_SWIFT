@@ -33,7 +33,7 @@ final class CardsWireframe: BaseWireframe {
 
 extension CardsWireframe: CardsWireframeProtocol {
     func openDetailInfo(card: Card) {
-        let cardDetailWireframe = CardDetailWireframe()
+        let cardDetailWireframe = CardDetailWireframe(withCard: card)
         viewController.show(cardDetailWireframe.viewController, sender: self)
     }
 }

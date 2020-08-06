@@ -31,6 +31,16 @@ final class CardDetailPresenter {
 
 extension CardDetailPresenter: CardDetailPresenterInterface {
     func configureView() {
-        
+        view.setView()
+        view.setConstraints()
+        let card = interactor.cards
+        let urlString = card.image
+        guard let url = URL(string: urlString) else {
+            view.cardDescription.text = card.flavorText
+            return
+        }
+        view.cardImage.load(url: url)
+        view.cardDescription.text = card.flavorText
+        view.cardDescription.textColor = .magenta
     }
 }

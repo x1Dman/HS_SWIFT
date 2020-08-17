@@ -7,10 +7,16 @@
 //
 
 import Foundation
-
+/*
+ Service for downloading a json from blizzard REST API server
+ Secret key for auth holds in Secret.swift
+*/
 class NetworkService {
     
-    private let blizzardUrl = "https://us.api.blizzard.com/hearthstone/cards?locale=en_US&gameMode=constructed&minionType=murloc&access_token=" + Secret.blizzToken
+    private struct Constants {
+        static let blizzardUrl = "https://us.api.blizzard.com/hearthstone/cards?locale=en_US&gameMode=constructed&minionType=murloc&access_token=" + Secret.blizzToken
+        static let httpMethod = "GET"
+    }
     
     enum JSONError: String, Error {
         case none = "OK"
@@ -20,10 +26,10 @@ class NetworkService {
 
     func jsonParser(completionHandler: @escaping (_ cards: Cards?, _ error: JSONError) -> ()) {
         // hit the API endpoint
-        let request = NSMutableURLRequest(url: NSURL(string: blizzardUrl)! as URL,
+        let request = NSMutableURLRequest(url: NSURL(string: Constants.blizzardUrl)! as URL,
             cachePolicy: .useProtocolCachePolicy,
         timeoutInterval: 10.0)
-        request.httpMethod = "GET"
+        request.httpMethod = Constants.httpMethod
         
         URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             do {

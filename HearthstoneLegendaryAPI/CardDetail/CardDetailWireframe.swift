@@ -36,6 +36,8 @@ final class CardDetailWireframe: BaseWireframe {
 
 extension CardDetailWireframe: CardDetailWireframeInterface {
     func moveTo() {
-        Configurator.conf.configure(viewController: GoldenCardViewController())
+        // route to next VC
+        // TODO: may be i should route to next view in other scope (can't initiate object here)
+        Router.instance.route(viewController: GoldenCardViewController())
     }
 }

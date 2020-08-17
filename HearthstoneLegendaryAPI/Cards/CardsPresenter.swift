@@ -20,7 +20,6 @@ final class CardsPresenter {
     
     private let interactor: CardsInteractorProtocol
     private let wireframe: CardsWireframeProtocol
-    //private var cells: [UICollectionViewCell] = []
     private var cards: Cards?
     
 
@@ -62,14 +61,11 @@ extension CardsPresenter: CardsPresenterProtocol {
         view.setConstraints()
         interactor.fetchData() { [weak self] in
             self?.cards = self?.interactor.cards
-            print("here is \(self?.cards)")
             // update content
             self?.view.reload()
             // there spinner should be stopped
         }
     }
-    
-    // sending message to router that this view should be closed
 }
 
 extension CardsPresenter: CardPresenterProtocol {

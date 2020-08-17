@@ -19,14 +19,14 @@ final class CardsInteractor {
 // MARK: - Extensions -
 
 extension CardsInteractor: CardsInteractorProtocol {
-    
+    // just download data with blizzAPI session
     func fetchData(completion: @escaping () -> ()) {
         self.network.jsonParser{cards, error in
             switch error {
             case .none:
                 DispatchQueue.main.async {
                     self.cards = cards
-                    print(self.cards)
+                    // MARK: here you can check for filling of cards struct
                     completion()
                 }
             default:

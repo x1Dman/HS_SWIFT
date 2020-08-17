@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
-protocol ConfiguratorProtocol {
-    func configure(viewController: UIViewController)
+// protocol for router
+protocol RouterProtocol {
+    func route(viewController: UIViewController)
+    func rollBack()
 }

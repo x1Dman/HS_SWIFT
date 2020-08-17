@@ -17,6 +17,7 @@ final class CardDetailInteractor {
 // MARK: - Extensions -
 
 extension CardDetailInteractor: CardDetailInteractorInterface {
+    // just filling already downloaded card
     var cards: Card {
         get {
             return self.card

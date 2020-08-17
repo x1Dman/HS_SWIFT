@@ -17,6 +17,10 @@ final class CardDetailViewController: UIViewController {
     var presenter: CardDetailPresenterInterface!
     
     // MARK: - private properties -
+    private struct Constants {
+        static let buttonTitle = "Show gold"
+    }
+    
     var cardImage = UIImageView()
     var cardDescription = UILabel()
     var goldButton = UIButton(frame: CGRect())
@@ -37,18 +41,17 @@ extension CardDetailViewController: CardDetailViewInterface {
         view.addSubview(goldButton)
         view.addSubview(cardDescription)
         view.addSubview(cardImage)
+        
         cardDescription.numberOfLines = 0
         cardDescription.sizeToFit()
         cardDescription.textAlignment = .center
         
-        //goldButton.titleLabel?.text = "Show gold"
-        //goldButton.titleLabel?.textColor = .orange
-        goldButton.setTitle("Show gold", for: .normal)
+        goldButton.setTitle(Constants.buttonTitle, for: .normal)
         goldButton.addTarget(self, action: #selector(imageTapped), for: .touchUpInside)
     }
     
     @objc func imageTapped() {
-        print("TAPPED")
+        // go to next view to show gold card
         presenter.move()
     }
     

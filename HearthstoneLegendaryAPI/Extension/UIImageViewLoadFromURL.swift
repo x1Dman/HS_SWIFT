@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+// Loading images from internet by url
 extension UIImageView {
     func load(url: URL) {
         DispatchQueue.global().async { [weak self] in

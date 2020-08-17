@@ -30,8 +30,8 @@
 		E43B8D0524D1845200C3692F /* CardDetailWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B8D0024D1845200C3692F /* CardDetailWireframe.swift */; };
 		E43B8D0824D197A000C3692F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B8D0724D197A000C3692F /* Card.swift */; };
 		E43B8D0A24D19D9500C3692F /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B8D0924D19D9500C3692F /* CardCollectionViewCell.swift */; };
-		E495D2D924E6BD9C0064007F /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E495D2D824E6BD9C0064007F /* Configurator.swift */; };
-		E495D2DB24E6BDBF0064007F /* ConfiguratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E495D2DA24E6BDBF0064007F /* ConfiguratorProtocol.swift */; };
+		E495D2D924E6BD9C0064007F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E495D2D824E6BD9C0064007F /* Router.swift */; };
+		E495D2DB24E6BDBF0064007F /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E495D2DA24E6BDBF0064007F /* RouterProtocol.swift */; };
 		E495D2E224E6C4BE0064007F /* GoldenCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E495D2E124E6C4BE0064007F /* GoldenCardViewController.swift */; };
 		E495D2E624EAAC3D0064007F /* DetailCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E495D2E524EAAC3D0064007F /* DetailCardData.swift */; };
 		E4D87E9424D2BCCC000094AD /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D87E9324D2BCCC000094AD /* NetworkService.swift */; };
@@ -66,8 +66,8 @@
 		E43B8D0024D1845200C3692F /* CardDetailWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailWireframe.swift; sourceTree = "<group>"; };
 		E43B8D0724D197A000C3692F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		E43B8D0924D19D9500C3692F /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
-		E495D2D824E6BD9C0064007F /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
-		E495D2DA24E6BDBF0064007F /* ConfiguratorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfiguratorProtocol.swift; sourceTree = "<group>"; };
+		E495D2D824E6BD9C0064007F /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		E495D2DA24E6BDBF0064007F /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
 		E495D2E124E6C4BE0064007F /* GoldenCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenCardViewController.swift; sourceTree = "<group>"; };
 		E495D2E524EAAC3D0064007F /* DetailCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCardData.swift; sourceTree = "<group>"; };
 		E4D87E9324D2BCCC000094AD /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -185,8 +185,8 @@
 		E495D2D724E6BD860064007F /* Configurator */ = {
 			isa = PBXGroup;
 			children = (
-				E495D2D824E6BD9C0064007F /* Configurator.swift */,
-				E495D2DA24E6BDBF0064007F /* ConfiguratorProtocol.swift */,
+				E495D2D824E6BD9C0064007F /* Router.swift */,
+				E495D2DA24E6BDBF0064007F /* RouterProtocol.swift */,
 			);
 			path = Configurator;
 			sourceTree = "<group>";
@@ -318,11 +318,11 @@
 				E43B8D0124D1845200C3692F /* CardDetailInterfaces.swift in Sources */,
 				E495D2E624EAAC3D0064007F /* DetailCardData.swift in Sources */,
 				E4D87E9F24DADBB1000094AD /* Secret.swift in Sources */,
-				E495D2DB24E6BDBF0064007F /* ConfiguratorProtocol.swift in Sources */,
+				E495D2DB24E6BDBF0064007F /* RouterProtocol.swift in Sources */,
 				E43B8D0224D1845200C3692F /* CardDetailPresenter.swift in Sources */,
 				E43B8CE924D182E700C3692F /* CardsCollectionViewController.swift in Sources */,
 				E43B8CFA24D183D300C3692F /* UIStoryboardExtension.swift in Sources */,
-				E495D2D924E6BD9C0064007F /* Configurator.swift in Sources */,
+				E495D2D924E6BD9C0064007F /* Router.swift in Sources */,
 				E495D2E224E6C4BE0064007F /* GoldenCardViewController.swift in Sources */,
 				E43B8D0424D1845200C3692F /* CardDetailInteractor.swift in Sources */,
 				E43B8CB724D17D5C00C3692F /* AppDelegate.swift in Sources */,

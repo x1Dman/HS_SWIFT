@@ -11,13 +11,17 @@
 import UIKit
 
 final class CardsCollectionViewController: UICollectionViewController {
+    
+    private struct Constants {
+        static let cellName = "cell"
+    }
 
     // MARK: - Public properties -
 
     var presenter: CardsPresenterProtocol!
     
     // MARK: private properties
-    //private
+    // made for presentation of cells
     private let sectionInsets = UIEdgeInsets(
         top: 50.0,
         left: 20.0,
@@ -30,7 +34,7 @@ final class CardsCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // ask for configuration
-        collectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: Constants.cellName)
         presenter.configureView()
     }
     
@@ -43,9 +47,9 @@ final class CardsCollectionViewController: UICollectionViewController {
         return 1
     }
     
-    // creating cells
+    // MARK: WORK WITH CELL
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as?
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellName, for: indexPath) as?
             CardCollectionViewCell else { return UICollectionViewCell() }
         guard let url = presenter.url(byIndex: indexPath.row) else { return cell }
         cell.cardImage.load(url: url)
@@ -53,19 +57,20 @@ final class CardsCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // asking presenter to push the current cell with card description and image
         presenter.viewTapped(byIndex: indexPath.row)
     }
 }
 
 // MARK: - Extensions -
 extension CardsCollectionViewController: CardsCollectionViewProtocol {
+    // reloading cells
     func reload() {
         collectionView.reloadData()
     }
     
     func setView() {
-        collectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        print("was setuped")
+        collectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: Constants.cellName)
         collectionView.backgroundColor = .red
     }
     
@@ -80,12 +85,12 @@ extension CardsCollectionViewController: CardsCollectionViewProtocol {
     }
 }
 
+// MARK: MADE FOR VISUAL BEAUTY OF CELLS
 extension CardsCollectionViewController: UICollectionViewDelegateFlowLayout {
-  //1
+
   func collectionView(_ collectionView: UICollectionView,
                       layout collectionViewLayout: UICollectionViewLayout,
                       sizeForItemAt indexPath: IndexPath) -> CGSize {
-    //2
     let paddingSpace = sectionInsets.left * (2)
     let availableWidth = view.frame.width - paddingSpace
     let widthPerItem = availableWidth
@@ -93,14 +98,12 @@ extension CardsCollectionViewController: UICollectionViewDelegateFlowLayout {
     return CGSize(width: widthPerItem, height: widthPerItem)
   }
   
-  //3
   func collectionView(_ collectionView: UICollectionView,
                       layout collectionViewLayout: UICollectionViewLayout,
                       insetForSectionAt section: Int) -> UIEdgeInsets {
     return sectionInsets
   }
   
-  // 4
   func collectionView(_ collectionView: UICollectionView,
                       layout collectionViewLayout: UICollectionViewLayout,
                       minimumLineSpacingForSectionAt section: Int) -> CGFloat {

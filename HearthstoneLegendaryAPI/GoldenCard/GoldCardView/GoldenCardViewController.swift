@@ -7,7 +7,10 @@
 //
 
 import UIKit
-
+/*
+ VIEW FOR SHOWING GOLDEN VERSION OF CARD
+ CARD MAY NOT HAVE GOLDEN VERSION
+*/
 final class GoldenCardViewController: UIViewController {
 
     private var goldImage = UIImageView()

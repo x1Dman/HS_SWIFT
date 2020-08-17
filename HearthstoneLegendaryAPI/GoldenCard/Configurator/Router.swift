@@ -8,14 +8,20 @@
 
 import UIKit
 
-final public class Configurator: ConfiguratorProtocol {
-    static let conf = Configurator()
+/*
+ Use for routing the views in app
+*/
+final public class Router: RouterProtocol {
+    static let instance = Router()
     private var navigationController = UINavigationController()
     
     func setNavigationController(_ navigationController: UINavigationController){
         self.navigationController = navigationController
     }
-    func configure(viewController: UIViewController) {
+    func route(viewController: UIViewController) {
         navigationController.pushViewController(viewController, animated: true)
+    }
+    func rollBack() {
+        navigationController.popViewController(animated: true)
     }
 }

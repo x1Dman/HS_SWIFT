@@ -8,6 +8,7 @@
 
 import UIKit
 
+// service for keeping the images of selected card
 final class DetailCardData {
     
     static let instance = DetailCardData()

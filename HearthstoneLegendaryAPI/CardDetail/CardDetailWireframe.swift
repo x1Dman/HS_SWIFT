@@ -24,10 +24,18 @@ final class CardDetailWireframe: BaseWireframe {
         interactor.cards = card
         let presenter = CardDetailPresenter(view: moduleViewController, interactor: interactor, wireframe: self)
         moduleViewController.presenter = presenter
+        
+        // setup card detail
+        // service for providing url for image into few views
+        DetailCardData.instance.cardImage = card.image
+        DetailCardData.instance.goldCardImage = card.imageGold
     }
 }
 
 // MARK: - Extensions -
 
 extension CardDetailWireframe: CardDetailWireframeInterface {
+    func moveTo() {
+        Configurator.conf.configure(viewController: GoldenCardViewController())
+    }
 }

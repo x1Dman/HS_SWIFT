@@ -27,6 +27,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
 }
 
 extension CardCollectionViewCell : CardsCollectionViewCellProtocol {

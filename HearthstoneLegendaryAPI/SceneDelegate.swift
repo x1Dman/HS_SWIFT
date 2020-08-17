@@ -22,6 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let viewController = wireframe.viewController
         let navigationController = UINavigationController()
         navigationController.viewControllers = [viewController]
+        Configurator.conf.setNavigationController(navigationController)
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navigationController
         window?.windowScene = windowScene

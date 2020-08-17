@@ -12,7 +12,7 @@ struct Card: Codable {
     var name: String = ""
     var manaCost: Int = 0
     var image: String = ""
-    var imageGold: String = ""
+    var imageGold: String? = ""
     var text: String?
     var flavorText = ""
     

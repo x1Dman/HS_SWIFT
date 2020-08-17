@@ -26,6 +26,7 @@ extension CardsInteractor: CardsInteractorProtocol {
             case .none:
                 DispatchQueue.main.async {
                     self.cards = cards
+                    print(self.cards)
                     completion()
                 }
             default:

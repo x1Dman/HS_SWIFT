@@ -11,6 +11,7 @@
 import UIKit
 
 protocol CardDetailWireframeInterface: WireframeInterface {
+    func moveTo()
 }
 
 protocol CardDetailViewInterface: ViewInterface {
@@ -23,6 +24,7 @@ protocol CardDetailViewInterface: ViewInterface {
 
 protocol CardDetailPresenterInterface: PresenterInterface {
     func configureView()
+    func move()
 }
 
 protocol CardDetailInteractorInterface: InteractorInterface {

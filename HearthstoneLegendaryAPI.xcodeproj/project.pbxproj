@@ -30,6 +30,10 @@
 		E43B8D0524D1845200C3692F /* CardDetailWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B8D0024D1845200C3692F /* CardDetailWireframe.swift */; };
 		E43B8D0824D197A000C3692F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B8D0724D197A000C3692F /* Card.swift */; };
 		E43B8D0A24D19D9500C3692F /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B8D0924D19D9500C3692F /* CardCollectionViewCell.swift */; };
+		E495D2D924E6BD9C0064007F /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E495D2D824E6BD9C0064007F /* Configurator.swift */; };
+		E495D2DB24E6BDBF0064007F /* ConfiguratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E495D2DA24E6BDBF0064007F /* ConfiguratorProtocol.swift */; };
+		E495D2E224E6C4BE0064007F /* GoldenCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E495D2E124E6C4BE0064007F /* GoldenCardViewController.swift */; };
+		E495D2E624EAAC3D0064007F /* DetailCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E495D2E524EAAC3D0064007F /* DetailCardData.swift */; };
 		E4D87E9424D2BCCC000094AD /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D87E9324D2BCCC000094AD /* NetworkService.swift */; };
 		E4D87E9624D2D001000094AD /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D87E9524D2D001000094AD /* Cards.swift */; };
 		E4D87E9C24DAB8EA000094AD /* UIImageViewLoadFromURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D87E9B24DAB8EA000094AD /* UIImageViewLoadFromURL.swift */; };
@@ -62,6 +66,10 @@
 		E43B8D0024D1845200C3692F /* CardDetailWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailWireframe.swift; sourceTree = "<group>"; };
 		E43B8D0724D197A000C3692F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		E43B8D0924D19D9500C3692F /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		E495D2D824E6BD9C0064007F /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
+		E495D2DA24E6BDBF0064007F /* ConfiguratorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfiguratorProtocol.swift; sourceTree = "<group>"; };
+		E495D2E124E6C4BE0064007F /* GoldenCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenCardViewController.swift; sourceTree = "<group>"; };
+		E495D2E524EAAC3D0064007F /* DetailCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCardData.swift; sourceTree = "<group>"; };
 		E4D87E9324D2BCCC000094AD /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E4D87E9524D2D001000094AD /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		E4D87E9B24DAB8EA000094AD /* UIImageViewLoadFromURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewLoadFromURL.swift; sourceTree = "<group>"; };
@@ -98,6 +106,7 @@
 		E43B8CB524D17D5C00C3692F /* HearthstoneLegendaryAPI */ = {
 			isa = PBXGroup;
 			children = (
+				E495D2D624E6BD7A0064007F /* GoldenCard */,
 				E4D87E9D24DADBA4000094AD /* Secret */,
 				E4D87E9A24DAB8C7000094AD /* Extension */,
 				E43B8D0624D1978000C3692F /* Model */,
@@ -145,6 +154,7 @@
 		E43B8CFB24D1842600C3692F /* CardDetail */ = {
 			isa = PBXGroup;
 			children = (
+				E495D2E324EAABFC0064007F /* CardDetailService */,
 				E43B8CFC24D1845200C3692F /* CardDetailInterfaces.swift */,
 				E43B8CFD24D1845200C3692F /* CardDetailPresenter.swift */,
 				E43B8CFE24D1845200C3692F /* CardDetailViewController.swift */,
@@ -161,6 +171,40 @@
 				E4D87E9524D2D001000094AD /* Cards.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E495D2D624E6BD7A0064007F /* GoldenCard */ = {
+			isa = PBXGroup;
+			children = (
+				E495D2D724E6BD860064007F /* Configurator */,
+				E495D2DC24E6C43E0064007F /* GoldCardView */,
+			);
+			path = GoldenCard;
+			sourceTree = "<group>";
+		};
+		E495D2D724E6BD860064007F /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				E495D2D824E6BD9C0064007F /* Configurator.swift */,
+				E495D2DA24E6BDBF0064007F /* ConfiguratorProtocol.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		E495D2DC24E6C43E0064007F /* GoldCardView */ = {
+			isa = PBXGroup;
+			children = (
+				E495D2E124E6C4BE0064007F /* GoldenCardViewController.swift */,
+			);
+			path = GoldCardView;
+			sourceTree = "<group>";
+		};
+		E495D2E324EAABFC0064007F /* CardDetailService */ = {
+			isa = PBXGroup;
+			children = (
+				E495D2E524EAAC3D0064007F /* DetailCardData.swift */,
+			);
+			path = CardDetailService;
 			sourceTree = "<group>";
 		};
 		E4D87E9224D2BCA4000094AD /* InteractorServices */ = {
@@ -272,10 +316,14 @@
 				E43B8CEA24D182E700C3692F /* CardsInteractor.swift in Sources */,
 				E4D87E9C24DAB8EA000094AD /* UIImageViewLoadFromURL.swift in Sources */,
 				E43B8D0124D1845200C3692F /* CardDetailInterfaces.swift in Sources */,
+				E495D2E624EAAC3D0064007F /* DetailCardData.swift in Sources */,
 				E4D87E9F24DADBB1000094AD /* Secret.swift in Sources */,
+				E495D2DB24E6BDBF0064007F /* ConfiguratorProtocol.swift in Sources */,
 				E43B8D0224D1845200C3692F /* CardDetailPresenter.swift in Sources */,
 				E43B8CE924D182E700C3692F /* CardsCollectionViewController.swift in Sources */,
 				E43B8CFA24D183D300C3692F /* UIStoryboardExtension.swift in Sources */,
+				E495D2D924E6BD9C0064007F /* Configurator.swift in Sources */,
+				E495D2E224E6C4BE0064007F /* GoldenCardViewController.swift in Sources */,
 				E43B8D0424D1845200C3692F /* CardDetailInteractor.swift in Sources */,
 				E43B8CB724D17D5C00C3692F /* AppDelegate.swift in Sources */,
 				E43B8CC124D17D5C00C3692F /* HearthstoneLegendaryAPI.xcdatamodeld in Sources */,
@@ -425,13 +473,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JCD57B2DWX;
 				INFOPLIST_FILE = HearthstoneLegendaryAPI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = nikita.khusnutdinov.HearthstoneLegendaryAPI;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "hs-viper";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -443,13 +493,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JCD57B2DWX;
 				INFOPLIST_FILE = HearthstoneLegendaryAPI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = nikita.khusnutdinov.HearthstoneLegendaryAPI;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "hs-viper";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

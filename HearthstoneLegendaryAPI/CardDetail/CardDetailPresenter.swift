@@ -43,4 +43,8 @@ extension CardDetailPresenter: CardDetailPresenterInterface {
         view.cardDescription.text = card.flavorText
         view.cardDescription.textColor = .magenta
     }
+    
+    func move() {
+        wireframe.moveTo()
+    }
 }

@@ -39,6 +39,7 @@ final class CardsPresenter {
 extension CardsPresenter: CardsPresenterProtocol {
     func viewTapped(byIndex index: Int) {
         guard let card = cards?.cards?[index] else { return }
+        print("OPENED CARD: \(card.image)")
         wireframe.openDetailInfo(card: card)
     }
     

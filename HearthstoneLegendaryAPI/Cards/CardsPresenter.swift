@@ -21,6 +21,7 @@ final class CardsPresenter {
     private let interactor: CardsInteractorProtocol
     private let wireframe: CardsWireframeProtocol
     private var cards: Cards?
+    private let imageManager = ImageManager()
     
 
     // MARK: - Lifecycle -
@@ -36,6 +37,18 @@ final class CardsPresenter {
 // MARK: - Extensions -
 
 extension CardsPresenter: CardsPresenterProtocol {
+    func configureCell(index: Int, cell: CardCollectionViewCell) {
+        guard let path = cards?.cards?[index].image else { return }
+        guard let url = URL(string: path) else { return }
+        imageManager.loadImage(from: url) { data in
+            guard let data = data as? Data else { return }
+            guard let image = UIImage(data: data) else {
+                return
+            }
+            cell.cardImage.image = image
+        }
+    }
+    
     func viewTapped(byIndex index: Int) {
         guard let card = cards?.cards?[index] else { return }
         print("OPENED CARD: \(card.image)")
@@ -69,9 +82,17 @@ extension CardsPresenter: CardsPresenterProtocol {
 }
 
 extension CardsPresenter: CardPresenterProtocol {
-    func loadImage(withIndex index: Int) {
-        guard let path = cards?.cards?[index].image else { return }
-        let url = URL(fileURLWithPath: path)
-        viewCell.cardImage.load(url: url)
+    func loadImage(withIndex: Int) {
+        
     }
+    
+//    func loadImage(withIndex index: Int, cell: CardCollectionViewCell) {
+//        guard let path = cards?.cards?[index].image else { return }
+//        guard let url = URL(string: path) else { return }
+//        // viewCell.cardImage.load(url: url)
+//        let imageManager = ImageManager()
+//        let _ = imageManager.loadImage(from: url) { image in
+//            cell.cardImage.image = image
+//        }
+//    }
 }

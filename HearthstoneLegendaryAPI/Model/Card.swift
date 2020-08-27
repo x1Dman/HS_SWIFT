@@ -15,8 +15,9 @@ struct Card: Codable {
     var imageGold: String? = ""
     var text: String?
     var flavorText = ""
+    var id: Int = 0
     
     //
-    var health: Int = 0
-    var attack: Int = 0
+    var health: Int? = nil
+    var attack: Int? = nil
 }

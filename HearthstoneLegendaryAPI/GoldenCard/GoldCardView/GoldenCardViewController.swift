@@ -12,48 +12,35 @@ import UIKit
  CARD MAY NOT HAVE GOLDEN VERSION
 */
 final class GoldenCardViewController: UIViewController {
-
-    private var goldImage = UIImageView()
+    
+    var goldImageUrl = ""
+    private var card3D: Card3DView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        setConstraints()
-        // Do any additional setup after loading the view.
     }
     
-    private func setupView(){
-        guard let urlString = DetailCardData.instance.goldCardImage else {
-            view.addSubview(goldImage)
-            return
-        }
-        guard let url = URL(string: urlString) else {
-            view.addSubview(goldImage)
-            return
-        }
-        goldImage.load(url: url)
-        view.addSubview(goldImage)
+    private func setupView() {
+        view.backgroundColor = .black
+        let url = URL(string: goldImageUrl)
+        setup3DCard(url: url)
+    }
+    
+    private func setup3DCard(url: URL?) {
+        card3D = Card3DView(frame: CGRect(), withUrl: url)
+        card3D.layer.position = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+        view.addSubview(card3D)
     }
     
     private func setConstraints() {
-        goldImage.translatesAutoresizingMaskIntoConstraints = false
+        card3D.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            goldImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            goldImage.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            goldImage.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            goldImage.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+            card3D.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            card3D.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            card3D.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            card3D.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
+        
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
-

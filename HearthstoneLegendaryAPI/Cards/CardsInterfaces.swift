@@ -35,11 +35,12 @@ protocol CardsPresenterProtocol: PresenterInterface {
     // return number of cells
     func cellsCount() -> Int
     func url(byIndex index: Int) -> URL?
+    func configureCell(index: Int, cell: CardCollectionViewCell)
 }
 
 protocol CardPresenterProtocol: PresenterInterface {
     // prepare view to show
-    func loadImage(withIndex: Int)
+    // func loadImage(withIndex: Int)
 }
 
 protocol CardsInteractorProtocol: InteractorInterface {

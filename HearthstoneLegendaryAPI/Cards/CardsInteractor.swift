@@ -11,9 +11,17 @@
 import Foundation
 
 final class CardsInteractor {
-    private let network = NetworkService()
+    private let network: JSONParseable
     private weak var presenter: CardsPresenterProtocol?
+    private let builder: URLBuildProtocol
+    private let className: String!
     var cards: Cards?
+    
+    init(with className: String, parser: JSONParseable = NetworkService(), builder: URLBuildProtocol = APIRequestBuilder()) {
+        self.className = className
+        self.builder = builder
+        self.network = parser
+    }
 }
 
 // MARK: - Extensions -
@@ -21,7 +29,9 @@ final class CardsInteractor {
 extension CardsInteractor: CardsInteractorProtocol {
     // just download data with blizzAPI session
     func fetchData(completion: @escaping () -> ()) {
-        self.network.jsonParser{cards, error in
+        let urlString = builder.buildRequest(with: className)
+        
+        self.network.jsonParser(urlString: urlString){ cards, error in
             switch error {
             case .none:
                 DispatchQueue.main.async {

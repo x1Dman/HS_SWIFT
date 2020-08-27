@@ -35,9 +35,12 @@ final class CardDetailWireframe: BaseWireframe {
 // MARK: - Extensions -
 
 extension CardDetailWireframe: CardDetailWireframeInterface {
-    func moveTo() {
+    func moveTo(withStringUrl url: String) {
         // route to next VC
         // TODO: may be i should route to next view in other scope (can't initiate object here)
-        Router.instance.route(viewController: GoldenCardViewController())
+        print("\(url)")
+        let goldVC = GoldenCardViewController()
+        goldVC.goldImageUrl = url
+        Router.instance.route(viewController: goldVC)
     }
 }

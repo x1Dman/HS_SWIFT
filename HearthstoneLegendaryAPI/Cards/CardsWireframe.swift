@@ -16,12 +16,12 @@ final class CardsWireframe: BaseWireframe {
 
     // MARK: - Module setup -
 
-    init() {
+    init(with className: String) {
         // ViewFlowLayout ???? instead of ViewLayout
         let moduleViewController = CardsCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
         super.init(viewController: moduleViewController)
 
-        let interactor = CardsInteractor()
+        let interactor = CardsInteractor(with: className)
         let viewCell = CardCollectionViewCell()
         let presenter = CardsPresenter(view: moduleViewController, interactor: interactor, wireframe: self, viewCell: viewCell)
         moduleViewController.presenter = presenter

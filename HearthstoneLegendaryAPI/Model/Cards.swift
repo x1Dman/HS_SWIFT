@@ -9,9 +9,8 @@
 import Foundation
 
 struct Cards: Codable {
-    
-    var cardCount: Int = 0
     var cards: [Card]?
-    var page: Int = 0
-    var pageCount: Int = 0
+//    var cardCount: Int = 0
+//    var page: Int = 0
+//    var pageCount: Int = 0
 }

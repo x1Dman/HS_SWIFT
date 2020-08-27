@@ -9,8 +9,6 @@
 import UIKit
 
 class CardCollectionViewCell: UICollectionViewCell {
-    
-    var presenter: CardPresenterProtocol!
     var cardImage = UIImageView()
     
     override func awakeFromNib() {
@@ -26,13 +24,16 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        
+        contentView.addSubview(cardImage)
+        setConstraintsCell()
     }
     
 }
 
 extension CardCollectionViewCell : CardsCollectionViewCellProtocol {
     func cellUpdate(index: Int) {
-        presenter.loadImage(withIndex: index)
+        //presenter.loadImage(withIndex: index)
     }
     
     func setViewCell() {

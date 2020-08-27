@@ -7,26 +7,28 @@
 //
 
 import Foundation
+
 /*
  Service for downloading a json from blizzard REST API server
  Secret key for auth holds in Secret.swift
 */
-class NetworkService {
+
+// just description
+//enum JSONError: String, Error {
+//    case none = "OK"
+//    case NoData = "ERROR: no data"
+//    case ConversionFailed = "ERROR: conversion from JSON failed"
+//}
+
+class NetworkService: JSONParseable {
     
     private struct Constants {
-        static let blizzardUrl = "https://us.api.blizzard.com/hearthstone/cards?locale=en_US&gameMode=constructed&minionType=murloc&access_token=" + Secret.blizzToken
         static let httpMethod = "GET"
     }
-    
-    enum JSONError: String, Error {
-        case none = "OK"
-        case NoData = "ERROR: no data"
-        case ConversionFailed = "ERROR: conversion from JSON failed"
-    }
 
-    func jsonParser(completionHandler: @escaping (_ cards: Cards?, _ error: JSONError) -> ()) {
+    func jsonParser(urlString: String, completionHandler: @escaping (_ cards: Cards?, _ error: JSONError) -> ()) {
         // hit the API endpoint
-        let request = NSMutableURLRequest(url: NSURL(string: Constants.blizzardUrl)! as URL,
+        let request = NSMutableURLRequest(url: NSURL(string: urlString)! as URL,
             cachePolicy: .useProtocolCachePolicy,
         timeoutInterval: 10.0)
         request.httpMethod = Constants.httpMethod
@@ -34,12 +36,15 @@ class NetworkService {
         URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             do {
                 guard let data = data else {
+                    print("NO DATA!")
                     return completionHandler(nil, .NoData)
                 }
+                print(data)
                 let decoder = JSONDecoder()
                 let jsonParsed = try decoder.decode(Cards.self, from: data)
                 completionHandler(jsonParsed, .none)
-            } catch _ as NSError {
+            } catch {
+                print("ConversationFailed")
                 completionHandler(nil, .ConversionFailed)
             }
         }.resume()

@@ -45,6 +45,6 @@ extension CardDetailPresenter: CardDetailPresenterInterface {
     }
     
     func move() {
-        wireframe.moveTo()
+        wireframe.moveTo(withStringUrl: interactor.cards.imageGold ?? "")
     }
 }

@@ -20,7 +20,7 @@ extension CardDetailInteractor: CardDetailInteractorInterface {
     // just filling already downloaded card
     var cards: Card {
         get {
-            return self.card
+            self.card
         }
         set(card) {
             self.card = card

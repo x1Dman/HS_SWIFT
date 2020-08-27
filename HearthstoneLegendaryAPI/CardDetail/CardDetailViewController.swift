@@ -38,6 +38,7 @@ final class CardDetailViewController: UIViewController {
 
 extension CardDetailViewController: CardDetailViewInterface {
     func setView() {
+        view.backgroundColor = .black
         view.addSubview(goldButton)
         view.addSubview(cardDescription)
         view.addSubview(cardImage)

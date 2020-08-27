@@ -11,7 +11,7 @@
 import UIKit
 
 protocol CardDetailWireframeInterface: WireframeInterface {
-    func moveTo()
+    func moveTo(withStringUrl url: String)
 }
 
 protocol CardDetailViewInterface: ViewInterface {

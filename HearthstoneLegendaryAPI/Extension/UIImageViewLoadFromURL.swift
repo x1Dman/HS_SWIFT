@@ -11,20 +11,20 @@ import UIKit
 
 // Loading images from internet by url
 extension UIImageView {
-    func load(url: URL) {
+    func load(url: URL, completion: @escaping (UIImage) -> () = { _ in }) {
         DispatchQueue.global().async { [weak self] in
             if let data = try? Data(contentsOf: url) {
                 if let image = UIImage(data: data) {
                     DispatchQueue.main.async {
-                        print("here")
                         self?.image = image
+                        completion(image)
                     }
-                }else {
+                } else {
                     DispatchQueue.main.async {
                         print("Error")
                     }
                 }
-            }else {
+            } else {
                 DispatchQueue.main.async {
                     print("Error 2")
                 }

@@ -8,9 +8,22 @@
 
 import UIKit
 
+
+
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
-    var window: UIWindow?
+    var window: UIWindow? // main window
+    var loadingWindow: UIWindow? // window for loading
+    
+    // TODO: - Add pop/push stack with windows (might be helpful) -
+    func openLoadingWindow() {
+        loadingWindow?.makeKeyAndVisible()
+    }
+    
+    func closeLoadingWindow() {
+        window?.makeKeyAndVisible()
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -18,7 +31,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let wireframe = CardsWireframe()
+        // setup loading windows
+        let loadingViewController = LoadingViewController()
+        loadingWindow = UIWindow(frame: UIScreen.main.bounds)
+        loadingWindow?.windowScene = windowScene
+        loadingWindow?.rootViewController = loadingViewController
+        
+        // setup main window
+        let wireframe = AuthScreenWireframe()
         let viewController = wireframe.viewController
         let navigationController = UINavigationController()
         navigationController.viewControllers = [viewController]

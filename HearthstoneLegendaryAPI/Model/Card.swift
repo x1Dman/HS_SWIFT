@@ -1,0 +1,27 @@
+//
+//  Card.swift
+//  HearthstoneLegendaryAPI
+//
+//  Created by 18579118 on 29.07.2020.
+//  Copyright © 2020 18579118. All rights reserved.
+//
+
+import Foundation
+
+/*
+ Card
+ Model for decoding JSON data from blizzard REST API
+ */
+
+struct Card: Codable {
+    var name: String = ""
+    var manaCost: Int = 0
+    var image: String = ""
+    var imageGold: String? = ""
+    var text: String?
+    var flavorText = ""
+    var id: Int = 0
+    
+    var health: Int? = nil
+    var attack: Int? = nil
+}

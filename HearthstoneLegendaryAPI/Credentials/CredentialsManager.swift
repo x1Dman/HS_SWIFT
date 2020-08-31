@@ -9,13 +9,15 @@
 import UIKit
 import Security
 
+/*
+ CredentialsManager:
+ uses keychain, has get and set on property called key
+ */
+
 final class CredentialsManager: Storable {
-    
-    private var _key: String = ""
     
     var key: String? {
         get {
-            // _key
             // here we want to get the key
             let service = AuthJSON.service
             let account = AuthJSON.account
@@ -36,27 +38,60 @@ final class CredentialsManager: Storable {
                 else {
                     return nil
                 }
+                print("WOW! it's token -> \(token)")
                 return token
             default:
                 return nil
             }
         }
         set {
-            guard let value = newValue else { return }
-            _key = value
+            var copyResult: CFTypeRef? = nil
             let account = AuthJSON.account
             let service = AuthJSON.service
-            guard let password = _key.data(using: .utf8) else {
-                return
-            }
+            // try to get a correct passwords
+            guard let value = newValue, let password = value.data(using: .utf8) else { return }
+            // query for adding
             let query: [String: Any] = [
                 kSecClass as String: kSecClassGenericPassword,
                 kSecAttrService as String: service,
                 kSecAttrAccount as String: account,
                 kSecValueData as String: password
             ]
-
-            let status = SecItemAdd(query as CFDictionary, nil)
+            // query for checking that there is already key in keychain
+            let searchQuery: [String: Any] = [
+                kSecClass as String: kSecClassGenericPassword,
+                kSecAttrService as String: service,
+                kSecAttrAccount as String: account,
+                kSecReturnData as String: true
+            ]
+            
+            let status = SecItemCopyMatching(searchQuery as CFDictionary, &copyResult)
+            switch status {
+                // TODO: check for outdated tokens
+                // means that there is already data
+            case errSecSuccess:
+                guard let oldData = copyResult as? Data else { return }
+                let oldPassword = String(data: oldData, encoding: .utf8)
+                // comparing old token and new one
+                if oldPassword != value {
+                    // update old key
+                    let _ = SecItemUpdate(
+                        [
+                            kSecClass as String: kSecClassGenericPassword,
+                            kSecAttrService: service,
+                            kSecAttrAccount: account
+                        ] as CFDictionary,
+                        [
+                            kSecValueData as String: password
+                        ] as CFDictionary
+                    )
+                }
+            case errSecItemNotFound:
+                // there is not such data -> adding
+                SecItemAdd(query as CFDictionary, nil)
+            default:
+                print("New value: \(String(describing: String(data: password, encoding: .utf8)))")
+            }
         }
     }
 }

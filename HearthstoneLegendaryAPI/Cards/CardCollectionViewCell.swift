@@ -32,10 +32,6 @@ class CardCollectionViewCell: UICollectionViewCell {
 }
 
 extension CardCollectionViewCell : CardsCollectionViewCellProtocol {
-    func cellUpdate(index: Int) {
-        //presenter.loadImage(withIndex: index)
-    }
-    
     func setViewCell() {
         contentView.addSubview(cardImage)
     }
@@ -45,7 +41,8 @@ extension CardCollectionViewCell : CardsCollectionViewCellProtocol {
         NSLayoutConstraint.activate([
             cardImage.topAnchor.constraint(equalTo: contentView.topAnchor),
             cardImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            cardImage.widthAnchor.constraint(equalTo: contentView.widthAnchor)
+            cardImage.widthAnchor.constraint(equalTo: contentView.widthAnchor),
+            cardImage.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
         ])
     }
 }

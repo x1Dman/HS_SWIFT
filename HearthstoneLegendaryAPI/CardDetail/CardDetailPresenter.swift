@@ -13,7 +13,9 @@ import Foundation
 final class CardDetailPresenter {
 
     // MARK: - Private properties -
-
+    private enum Constants {
+        static let defaultUrl = ""
+    }
     private unowned let view: CardDetailViewInterface
     private let interactor: CardDetailInteractorInterface
     private let wireframe: CardDetailWireframeInterface
@@ -45,6 +47,6 @@ extension CardDetailPresenter: CardDetailPresenterInterface {
     }
     
     func move() {
-        wireframe.moveTo(withStringUrl: interactor.cards.imageGold ?? "")
+        wireframe.moveTo(withStringUrl: interactor.cards.imageGold ?? Constants.defaultUrl)
     }
 }

@@ -60,7 +60,6 @@
 		E4D87E9424D2BCCC000094AD /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D87E9324D2BCCC000094AD /* NetworkService.swift */; };
 		E4D87E9624D2D001000094AD /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D87E9524D2D001000094AD /* Cards.swift */; };
 		E4D87E9C24DAB8EA000094AD /* UIImageViewLoadFromURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D87E9B24DAB8EA000094AD /* UIImageViewLoadFromURL.swift */; };
-		E4D87E9F24DADBB1000094AD /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D87E9E24DADBB1000094AD /* Secret.swift */; };
 		E4DB004424F3C10600E8855C /* AuthJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DB004324F3C10600E8855C /* AuthJSON.swift */; };
 		E4DB004624F3C42100E8855C /* AuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DB004524F3C42100E8855C /* AuthHandler.swift */; };
 		E4DB004F24F411DA00E8855C /* LoadingWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DB004E24F411DA00E8855C /* LoadingWindow.swift */; };
@@ -139,7 +138,6 @@
 		E4D87E9324D2BCCC000094AD /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E4D87E9524D2D001000094AD /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		E4D87E9B24DAB8EA000094AD /* UIImageViewLoadFromURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewLoadFromURL.swift; sourceTree = "<group>"; };
-		E4D87E9E24DADBB1000094AD /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		E4DB004324F3C10600E8855C /* AuthJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthJSON.swift; sourceTree = "<group>"; };
 		E4DB004524F3C42100E8855C /* AuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHandler.swift; sourceTree = "<group>"; };
 		E4DB004E24F411DA00E8855C /* LoadingWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingWindow.swift; sourceTree = "<group>"; };
@@ -259,7 +257,6 @@
 				E43B8CFB24D1842600C3692F /* CardDetail */,
 				E495D2D624E6BD7A0064007F /* GoldenCard */,
 				E43B8D0624D1978000C3692F /* Model */,
-				E4D87E9D24DADBA4000094AD /* Secret */,
 				E4D87E9A24DAB8C7000094AD /* Extension */,
 				E43B8CEC24D1832A00C3692F /* BaseViperIntefaces */,
 				E43B8CB624D17D5C00C3692F /* AppDelegate.swift */,
@@ -409,14 +406,6 @@
 				E4D87E9B24DAB8EA000094AD /* UIImageViewLoadFromURL.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		E4D87E9D24DADBA4000094AD /* Secret */ = {
-			isa = PBXGroup;
-			children = (
-				E4D87E9E24DADBB1000094AD /* Secret.swift */,
-			);
-			path = Secret;
 			sourceTree = "<group>";
 		};
 		E4DB004224F3C0F400E8855C /* AuthData */ = {
@@ -571,7 +560,6 @@
 				E4BC47C024F7E7CD009A0802 /* URLBuildProtocol.swift in Sources */,
 				E43B8D0124D1845200C3692F /* CardDetailInterfaces.swift in Sources */,
 				E495D2E624EAAC3D0064007F /* DetailCardData.swift in Sources */,
-				E4D87E9F24DADBB1000094AD /* Secret.swift in Sources */,
 				E495D2DB24E6BDBF0064007F /* RouterProtocol.swift in Sources */,
 				E43B8D0224D1845200C3692F /* CardDetailPresenter.swift in Sources */,
 				E4DB004424F3C10600E8855C /* AuthJSON.swift in Sources */,

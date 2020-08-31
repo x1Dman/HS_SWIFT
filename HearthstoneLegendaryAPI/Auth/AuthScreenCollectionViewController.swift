@@ -14,9 +14,11 @@ final class AuthScreenCollectionViewController: UICollectionViewController, UICo
     // MARK: - Private properties -
     private enum Constants {
         static let cellIdentifier = "cell"
+        static let numberOfSections = 1
+        static let paddingSpace: CGFloat = 3
     }
     
-    private let sectionInsets = UIEdgeInsets(
+    private let sectionInsets = UIEdgeInsets (
         top: 50.0,
         left: 10.0,
         bottom: 50.0,
@@ -45,7 +47,7 @@ final class AuthScreenCollectionViewController: UICollectionViewController, UICo
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return Constants.numberOfSections
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -64,7 +66,7 @@ final class AuthScreenCollectionViewController: UICollectionViewController, UICo
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let paddingSpace = sectionInsets.left * (3)
+        let paddingSpace = sectionInsets.left * Constants.paddingSpace
         let availableWidth = view.frame.width - paddingSpace
         let widthPerItem = availableWidth
         
@@ -80,7 +82,7 @@ final class AuthScreenCollectionViewController: UICollectionViewController, UICo
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return sectionInsets.top / 2 
+        return sectionInsets.top / 2.0
     }
 }
 

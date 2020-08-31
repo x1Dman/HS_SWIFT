@@ -8,6 +8,14 @@
 
 import Foundation
 
+/*
+ Hero
+ Enum that contains:
+    1) names of classes in hs
+    2) names of images in xcassets
+    3) names in blizzard api for fetching data
+ */
+
 enum Hero: Int {
     case druid
     case warlock

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol LoginProtocol  {
-    func login(completion: @escaping (_ auth: AuthJSON?, _ login: AuthStatus) -> ())
+    func login(completion: @escaping (Result<AuthJSON?, AuthError>) -> ())
 }

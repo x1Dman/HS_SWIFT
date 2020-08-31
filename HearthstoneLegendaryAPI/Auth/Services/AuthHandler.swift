@@ -15,9 +15,9 @@ final class AuthHandler {
         self.loginService = loginService
     }
     
-    func auth(completion: @escaping (AuthJSON?, AuthStatus) -> ()) {
-        loginService?.login { (jsonAuth, status) in
-            completion(jsonAuth, status)
+    func auth(completion: @escaping (Result<AuthJSON?, AuthError>) -> ()) {
+        loginService?.login { result in
+            completion(result)
         }
     }
 }

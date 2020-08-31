@@ -31,17 +31,17 @@ extension CardsInteractor: CardsInteractorProtocol {
     func fetchData(completion: @escaping () -> ()) {
         let urlString = builder.buildRequest(with: className)
         
-        self.network.jsonParser(urlString: urlString){ cards, error in
-            switch error {
-            case .none:
+        self.network.jsonParser(urlString: urlString){ [weak self] result in
+            switch result {
+            case .success(let cards):
                 DispatchQueue.main.async {
-                    self.cards = cards
-                    // MARK: here you can check for filling of cards struct
+                    self?.cards = cards
                     completion()
                 }
-            default:
+            case .failure(let fetchError):
                 DispatchQueue.main.async {
-                    self.cards = nil
+                    print(fetchError.rawValue)
+                    self?.cards = nil
                     completion()
                 }
             }

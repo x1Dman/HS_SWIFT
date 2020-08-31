@@ -13,21 +13,31 @@
 
 import Foundation
 
+/*
+ IMAGE MANAGER
+ CHECKS IF IMAGE IN THE CACHE:
+    1) in cache -> returns it
+    2) not in cache -> download it
+ */
+
 final class ImageManager {
+    // cache
     private let cache: URLCashable
+    // lets download using url
     private let downloader: URLDownloadable
     
+    // has default setup for init
     init(cache: URLCashable = Cache(), downloader: URLDownloadable = Downloader()) {
         self.cache = cache
         self.downloader = downloader
     }
     
     func loadImage(from url: URL, completion: @escaping (AnyObject) -> () = { _ in }) {
+        // check if image in cache
         if let data = cache[url] {
-            print("wow it's in cache")
             completion(data)
         }
-        
+        // download it in other way
         _ = downloader.load(url: url){[weak self] data in
             self?.cache[url] = data
             completion(data)

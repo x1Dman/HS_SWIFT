@@ -8,18 +8,24 @@
 
 import Foundation
 
+// Config lets describe how many data you want to keep in memory
+// memoryLimit let you keep N bits of data
+// countLimit allows you to keep M types no matter what their size ( can be used for prepared data )
 struct Config {
     var memoryLimit: Int
     var countLimit: Int
     
-    static let defaultConfig = Config(memoryLimit: 100, countLimit: 1024 * 1024 * 100) // 100 mb
+    static let defaultConfig = Config(memoryLimit: 1024 * 1024 * 100, countLimit: 100) // 100 mb
     
 }
 
-
+/*
+ CACHE
+ use NSDictionaries, NSLock for threadsafety ( rescue from dirty-read )
+ */
 
 final class Cache: URLCashable {
-    
+    // cache
     private lazy var cache: NSCache<NSURL, AnyObject> = {
         let cache = NSCache<NSURL, AnyObject>()
         cache.totalCostLimit = config.memoryLimit
@@ -34,6 +40,8 @@ final class Cache: URLCashable {
     }
     
     func update(_ data: AnyObject?, for url: URL) {
+        // if data already in cache -> delete it
+        // then push new one
         guard let data = data else {
             return remove(by: url)
         }
@@ -55,6 +63,7 @@ final class Cache: URLCashable {
     }
     
     func insert(_ data: AnyObject?, for url: URL) {
+        // check that data is ok
         guard let data = data else {
             return
         }
@@ -75,6 +84,7 @@ final class Cache: URLCashable {
         cache.removeAllObjects()
     }
     
+    // subscript for easy access to cache
     subscript(key: URL) -> AnyObject? {
         get {
             let url = key as NSURL

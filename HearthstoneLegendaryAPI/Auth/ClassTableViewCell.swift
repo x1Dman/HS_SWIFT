@@ -10,6 +10,10 @@ import UIKit
 
 class ClassCollectionViewCell: UICollectionViewCell, AuthScreenViewCellInterface {
     
+    private enum Constants {
+        static let fontSize: CGFloat = 30
+        static let borderWidth: CGFloat = 5
+    }
     private let classTextView = UITextView()
     
     func setup(with text: String, imagePath: String) {
@@ -24,7 +28,7 @@ class ClassCollectionViewCell: UICollectionViewCell, AuthScreenViewCellInterface
         classTextView.isUserInteractionEnabled = false
         classTextView.text = text
         classTextView.backgroundColor = .clear
-        classTextView.font = .italicSystemFont(ofSize: 30)
+        classTextView.font = .italicSystemFont(ofSize: Constants.fontSize)
         classTextView.textColor = .white
         classTextView.textAlignment = .center
         classTextView.textContainer.size = CGSize(width: frame.width, height: frame.height)
@@ -36,7 +40,7 @@ class ClassCollectionViewCell: UICollectionViewCell, AuthScreenViewCellInterface
         backgroundView = imageView
         layer.cornerRadius = bounds.size.width / 4.0
         layer.borderColor = UIColor.white.cgColor
-        layer.borderWidth = 5
+        layer.borderWidth = Constants.borderWidth
         clipsToBounds = true
     }
 
@@ -44,6 +48,7 @@ class ClassCollectionViewCell: UICollectionViewCell, AuthScreenViewCellInterface
         classTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             classTextView.widthAnchor.constraint(equalTo: widthAnchor),
+            classTextView.leadingAnchor.constraint(equalTo: leadingAnchor),
             classTextView.bottomAnchor.constraint(equalTo: bottomAnchor),
             classTextView.topAnchor.constraint(equalTo: topAnchor, constant: bounds.height / 2.0)
         ])

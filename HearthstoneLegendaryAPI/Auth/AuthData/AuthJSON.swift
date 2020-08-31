@@ -8,11 +8,6 @@
 
 import Foundation
 
-enum AuthStatus: Error {
-    case success
-    case failure
-}
-
 enum AuthError: Error {
     case noSecret
     case unexpectedSecretData

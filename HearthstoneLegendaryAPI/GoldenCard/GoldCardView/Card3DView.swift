@@ -33,9 +33,14 @@ class Card3DView: UIView {
             setup()
             return
         }
-        cardImage.load(url: url) {[weak self] image in
-            self?.cardImage.image = image
-            self?.setup()
+        cardImage.load(url: url) {[weak self] result in
+            switch result {
+            case .success(let image):
+                self?.cardImage.image = image
+                self?.setup()
+            case .failure(let downloadImageError):
+                print(downloadImageError.rawValue)
+            }
         }
     }
     

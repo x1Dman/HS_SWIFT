@@ -8,6 +8,8 @@
 
 import Foundation
 
+// Downloader simply download object using url
+
 class Downloader: URLDownloadable {
     func load(url: URL, completion: @escaping (AnyObject) -> () = { _ in }) -> AnyObject? {
         DispatchQueue.global().async { 

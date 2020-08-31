@@ -14,7 +14,10 @@ import UIKit
 final class CardsPresenter {
 
     // MARK: - Private properties -
-    // view
+    private enum Constants {
+        static let defaultPath = ""
+        static let defaultCount = 1
+    }
     private unowned let viewCell: CardsCollectionViewCellProtocol
     private unowned let view: CardsCollectionViewProtocol
     
@@ -51,24 +54,21 @@ extension CardsPresenter: CardsPresenterProtocol {
     
     func viewTapped(byIndex index: Int) {
         guard let card = cards?.cards?[index] else { return }
-        print("OPENED CARD: \(card.image)")
         wireframe.openDetailInfo(card: card)
     }
     
     func url(byIndex index: Int) -> URL? {
-        let path = cards?.cards?[index].image ?? ""
+        let path = cards?.cards?[index].image ?? Constants.defaultPath
         guard let url = URL(string: path) else { return nil }
         return url
     }
     
     
     func cellsCount() -> Int {
-        return cards?.cards?.count ?? 1
+        return cards?.cards?.count ?? Constants.defaultCount
     }
     
     func configureView() {
-        // fetch data
-        // let cards  = interactor.fetchData()
         // there should be a spinner
         view.setView()
         view.setConstraints()
@@ -82,17 +82,5 @@ extension CardsPresenter: CardsPresenterProtocol {
 }
 
 extension CardsPresenter: CardPresenterProtocol {
-    func loadImage(withIndex: Int) {
-        
-    }
-    
-//    func loadImage(withIndex index: Int, cell: CardCollectionViewCell) {
-//        guard let path = cards?.cards?[index].image else { return }
-//        guard let url = URL(string: path) else { return }
-//        // viewCell.cardImage.load(url: url)
-//        let imageManager = ImageManager()
-//        let _ = imageManager.loadImage(from: url) { image in
-//            cell.cardImage.image = image
-//        }
-//    }
+
 }

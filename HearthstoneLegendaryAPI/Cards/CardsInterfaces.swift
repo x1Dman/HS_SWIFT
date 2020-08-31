@@ -18,7 +18,6 @@ protocol CardsCollectionViewCellProtocol : ViewInterface {
     var cardImage: UIImageView { get set }
     func setViewCell()
     func setConstraintsCell()
-    func cellUpdate(index: Int)
 }
 
 protocol CardsCollectionViewProtocol: ViewInterface {
@@ -39,14 +38,10 @@ protocol CardsPresenterProtocol: PresenterInterface {
 }
 
 protocol CardPresenterProtocol: PresenterInterface {
-    // prepare view to show
-    // func loadImage(withIndex: Int)
+    
 }
 
 protocol CardsInteractorProtocol: InteractorInterface {
     var cards: Cards? { get set }
-    
-    // download the cards with API;
-    // return JSON
     func fetchData(completion: @escaping () -> ())
 }

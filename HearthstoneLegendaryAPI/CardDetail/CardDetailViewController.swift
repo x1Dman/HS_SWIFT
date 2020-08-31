@@ -19,6 +19,8 @@ final class CardDetailViewController: UIViewController {
     // MARK: - private properties -
     private struct Constants {
         static let buttonTitle = "Show gold"
+        static let buttonHeight: CGFloat = 6.0
+        static let numberOfLines = 0
     }
     
     var cardImage = UIImageView()
@@ -43,7 +45,7 @@ extension CardDetailViewController: CardDetailViewInterface {
         view.addSubview(cardDescription)
         view.addSubview(cardImage)
         
-        cardDescription.numberOfLines = 0
+        cardDescription.numberOfLines = Constants.numberOfLines
         cardDescription.sizeToFit()
         cardDescription.textAlignment = .center
         
@@ -61,24 +63,24 @@ extension CardDetailViewController: CardDetailViewInterface {
         NSLayoutConstraint.activate([
             cardImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             cardImage.widthAnchor.constraint(equalTo: view.widthAnchor),
-            cardImage.bottomAnchor.constraint(equalTo: cardDescription.topAnchor),
-            cardImage.heightAnchor.constraint(equalToConstant: view.frame.size.height)
+            cardImage.heightAnchor.constraint(equalToConstant: view.frame.size.height / 2.0),
+            cardImage.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
         
         cardDescription.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             cardDescription.topAnchor.constraint(equalTo: cardImage.bottomAnchor),
-            cardDescription.bottomAnchor.constraint(equalTo: goldButton.topAnchor),
             cardDescription.widthAnchor.constraint(equalTo: view.widthAnchor),
-            cardDescription.heightAnchor.constraint(equalToConstant: view.frame.size.height)
+            cardDescription.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            cardDescription.bottomAnchor.constraint(equalTo: goldButton.topAnchor)
         ])
         
         goldButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            goldButton.topAnchor.constraint(equalTo: cardDescription.bottomAnchor),
+            goldButton.heightAnchor.constraint(equalToConstant: view.frame.height / Constants.buttonHeight),
             goldButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             goldButton.widthAnchor.constraint(equalTo: view.widthAnchor),
-            goldButton.heightAnchor.constraint(equalToConstant: view.frame.size.height)
+            goldButton.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
     }
 }

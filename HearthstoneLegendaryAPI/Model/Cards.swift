@@ -8,9 +8,11 @@
 
 import Foundation
 
+/*
+ CARDS
+ Made for decode JSON data from blizzard REST API
+ */
+
 struct Cards: Codable {
     var cards: [Card]?
-//    var cardCount: Int = 0
-//    var page: Int = 0
-//    var pageCount: Int = 0
 }

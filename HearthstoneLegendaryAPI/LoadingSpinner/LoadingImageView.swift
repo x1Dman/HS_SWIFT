@@ -9,7 +9,15 @@
 import UIKit
 
 final class LoadingImageView: UIImageView, LoadingProtocol {
-    private let loadingImage = UIImage(named: "loadingSpinner")
+    
+    private enum Constants {
+        static let spinnerName = "loadingSpinner"
+        static let gifName = "giphy-2"
+        
+        static let startAlpha: CGFloat = 0.25
+        static let stopAlpha: CGFloat = 1
+    }
+    private let loadingImage = UIImage(named: Constants.spinnerName)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,12 +35,12 @@ final class LoadingImageView: UIImageView, LoadingProtocol {
     }
     
     func startLoading() {
-        alpha = 0.25
+        alpha = Constants.startAlpha
     }
     
     func stopLoading() {
-        alpha = 1
-        image = UIImage.gif(asset: "giphy-2")
+        alpha = Constants.stopAlpha
+        image = UIImage.gif(asset: Constants.gifName)
     }
     
     func stopLoadingError() {

@@ -26,7 +26,7 @@ class NetworkService: JSONParseable {
         static let httpMethod = "GET"
     }
 
-    func jsonParser(urlString: String, completionHandler: @escaping (_ cards: Cards?, _ error: JSONError) -> ()) {
+    func jsonParser(urlString: String, completionHandler: @escaping (Result<Cards?, JSONError>) -> ()) {
         // hit the API endpoint
         let request = NSMutableURLRequest(url: NSURL(string: urlString)! as URL,
             cachePolicy: .useProtocolCachePolicy,
@@ -36,16 +36,14 @@ class NetworkService: JSONParseable {
         URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             do {
                 guard let data = data else {
-                    print("NO DATA!")
-                    return completionHandler(nil, .NoData)
+                    return completionHandler(.failure(.NoData))
                 }
                 print(data)
                 let decoder = JSONDecoder()
-                let jsonParsed = try decoder.decode(Cards.self, from: data)
-                completionHandler(jsonParsed, .none)
+                let parsedCards = try decoder.decode(Cards.self, from: data)
+                completionHandler(.success(parsedCards))
             } catch {
-                print("ConversationFailed")
-                completionHandler(nil, .ConversionFailed)
+                completionHandler(.failure(.ConversionFailed))
             }
         }.resume()
     }

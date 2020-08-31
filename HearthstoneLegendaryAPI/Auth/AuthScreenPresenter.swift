@@ -42,11 +42,10 @@ extension AuthScreenPresenter: AuthScreenPresenterInterface {
     }
     
     func authAndPrepareToShow() {
-        print("Start spin")
         wireframe.startLoading()
-        interactor.auth { data, status in
+        interactor.auth { result in
             self.view.setupView()
-            self.wireframe.stopLoading(with: status)
+            self.wireframe.stopLoading(with: result)
         }
     }
     

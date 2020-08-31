@@ -25,20 +25,20 @@ final class AuthScreenInteractor {
 // MARK: - Extensions -
 
 extension AuthScreenInteractor: AuthScreenInteractorInterface {
-    func auth(completion: @escaping (AuthJSON?, AuthStatus) -> ()) {
+    func auth(completion: @escaping (Result<AuthJSON?, AuthError>) -> ()) {
         let loginService = BlizzardLoginService()
         let authHandler = AuthHandler(with: loginService)
-        authHandler.auth { authStruct, status in
+        authHandler.auth {[weak self] status in
             DispatchQueue.main.async {
                 switch status {
-                case .success:
+                case .success(let result):
                     // if everything is fine -> save the data in keychain ( store )
-                    guard let token = authStruct?.access_token else { return }
-                    self.store.key = token
+                    guard let token = result?.access_token else { return }
+                    self?.store.key = token
                 default:
                     break
                 }
-                completion(authStruct, status)
+                completion(status)
             }
         }
     }

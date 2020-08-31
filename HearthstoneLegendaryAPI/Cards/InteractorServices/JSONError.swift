@@ -10,7 +10,6 @@ import Foundation
 
 // just description of type errors
 enum JSONError: String, Error {
-    case none = "OK"
     case NoData = "ERROR: no data"
     case ConversionFailed = "ERROR: conversion from JSON failed"
 }

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol JSONParseable {
-    func jsonParser(urlString: String, completionHandler: @escaping (_ cards: Cards?, _ error: JSONError) -> ())
+    func jsonParser(urlString: String, completionHandler: @escaping (Result<Cards?, JSONError>) -> ())
 }

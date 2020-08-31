@@ -19,7 +19,7 @@ final class BlizzardLoginService: LoginProtocol {
         static let parameters = "grant_type=client_credentials"
     }
     
-    func login(completion: @escaping (AuthJSON?, AuthStatus) -> ()) {
+    func login(completion: @escaping (Result<AuthJSON?, AuthError>) -> ()) {
         let parameters = Constants.parameters
         let postData =  parameters.data(using: .utf8)
         
@@ -33,13 +33,13 @@ final class BlizzardLoginService: LoginProtocol {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             do {
                 guard let data = data else {
-                    return completion(nil, .failure)
+                    return completion(.failure(.unexpectedSecretData))
                 }
                 let decoder = JSONDecoder()
                 let jsonParsed = try decoder.decode(AuthJSON.self, from: data)
-                completion(jsonParsed, .success)
-            } catch _ as NSError {
-                completion(nil, .failure)
+                completion(.success(jsonParsed))
+            } catch _  {
+                completion(.failure(.unexpectedSecretData))
             }
         }
         task.resume()

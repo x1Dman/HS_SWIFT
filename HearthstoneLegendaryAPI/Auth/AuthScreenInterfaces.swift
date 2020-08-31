@@ -12,7 +12,7 @@ import UIKit
 
 protocol AuthScreenWireframeInterface: WireframeInterface {
     func startLoading()
-    func stopLoading(with status: AuthStatus)
+    func stopLoading(with status: Result<AuthJSON?, AuthError>)
     func moveToCards(by className: String)
 }
 
@@ -29,7 +29,7 @@ protocol AuthScreenPresenterInterface: PresenterInterface {
 }
 
 protocol AuthScreenInteractorInterface: InteractorInterface {
-    func auth(completion: @escaping (AuthJSON?, AuthStatus) -> ())
+    func auth(completion: @escaping (Result<AuthJSON?, AuthError>) -> ())
     var heroes: [Hero] { get }
 }
 

@@ -14,6 +14,8 @@ final class CardsCollectionViewController: UICollectionViewController {
     
     private struct Constants {
         static let cellName = "cell"
+        
+        static let paddingSpace: CGFloat = 2
     }
     
     // MARK: - Public properties -
@@ -91,7 +93,7 @@ extension CardsCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let paddingSpace = sectionInsets.left * (2)
+        let paddingSpace = sectionInsets.left * Constants.paddingSpace
         let availableWidth = view.frame.width - paddingSpace
         let widthPerItem = availableWidth
         

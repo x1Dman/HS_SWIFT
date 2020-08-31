@@ -14,8 +14,10 @@ final class LoadingTextView: UITextView, LoadingProtocol {
         static let font = "Zapfino"
         static let startAnimationText = "Loading"
         static let stopAnimationText = ""
+        static let connectionErrorText = "Connection error\n Can't receive access token"
         
-        static let fontSize: CGFloat = 30
+        static let fontStartSize: CGFloat = 30
+        static let fontStopSize: CGFloat = 15
         static let startAnimationAlpha: CGFloat = 0.25
         static let stopAnimationAlpha: CGFloat = 1
     }
@@ -32,7 +34,7 @@ final class LoadingTextView: UITextView, LoadingProtocol {
     
     private func setupView() {
         insertText(Constants.startAnimationText)
-        font = UIFont(name: Constants.font, size: Constants.fontSize)
+        font = UIFont(name: Constants.font, size: Constants.fontStartSize)
         textColor = .white
         textAlignment = .center
         backgroundColor = .black
@@ -47,6 +49,7 @@ final class LoadingTextView: UITextView, LoadingProtocol {
     }
     
     func stopLoadingError() {
-        text = "Connection error\n Can't receive access token"
+        font = UIFont(name: Constants.font, size: Constants.fontStopSize)
+        text = Constants.connectionErrorText
     }
 }

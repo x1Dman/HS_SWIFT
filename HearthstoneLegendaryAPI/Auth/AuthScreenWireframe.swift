@@ -13,6 +13,10 @@ import UIKit
 final class AuthScreenWireframe: BaseWireframe {
     
     // MARK: - Private properties -
+    private enum Constants {
+        static let startLoadingDuration = 1.0
+        static let stopLoadingDuration = 3.0
+    }
     
     // MARK: - Module setup -
     
@@ -37,28 +41,42 @@ extension AuthScreenWireframe: AuthScreenWireframeInterface {
                 return
         }
         sceneDelegate.openLoadingWindow()
-        UIView.animate(withDuration: 1.0, delay: 0, options: [.autoreverse, .repeat], animations: { openedController.start() }) {
+        UIView.animate(
+            withDuration: Constants.startLoadingDuration,
+            delay: 0,
+            options: [.autoreverse, .repeat],
+            animations: {
+                openedController.start()
+            }
+        ) {
            _ in
         }
     }
     
-    func stopLoading(with status: AuthStatus) {
+    func stopLoading(with result: Result<AuthJSON?, AuthError>) {
         guard let sceneDelegate = UIApplication.shared.connectedScenes
             .first?.delegate as? SceneDelegate,
             let openedController = sceneDelegate.loadingWindow?.rootViewController as? LoadingViewControllerProtocol else {
                 return
         }
         
-        UIView.animate(withDuration: 3.0, delay: 0.0, animations: {
-            switch status {
-            case .success:
-                openedController.stop()
-            default:
-                openedController.stopError()
+        UIView.animate(
+            withDuration: Constants.stopLoadingDuration,
+            delay: 0,
+            animations: {
+                switch result {
+                case .success:
+                    openedController.stop()
+                default:
+                    openedController.stopError()
+                }
             }
-        }) { _ in
-            if status == .success {
+        ) { _ in
+            switch result {
+            case .success(_):
                 sceneDelegate.closeLoadingWindow()
+            case .failure(let authentificationError):
+                print(authentificationError)
             }
         }
     }

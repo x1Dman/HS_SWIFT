@@ -8,6 +8,11 @@
 
 import Foundation
 
+/*
+ Card
+ Model for decoding JSON data from blizzard REST API
+ */
+
 struct Card: Codable {
     var name: String = ""
     var manaCost: Int = 0
@@ -17,7 +22,6 @@ struct Card: Codable {
     var flavorText = ""
     var id: Int = 0
     
-    //
     var health: Int? = nil
     var attack: Int? = nil
 }
